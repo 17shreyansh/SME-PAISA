@@ -2,12 +2,13 @@ const User = require('../models/User');
 const Client = require('../models/Client');
 const Associate = require('../models/Associate');
 const { generateToken, generateRefreshToken, setCookieOptions, setRefreshCookieOptions } = require('../config/jwt');
+const { getUserTypeFromRole } = require('../utils/roleUtils');
 const crypto = require('crypto');
 
 // Register user
 const register = async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, password, role, ...additionalData } = req.body;
+    const { firstName, lastName, email, phone, password, role, associateType, ...additionalData } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({
@@ -21,18 +22,29 @@ const register = async (req, res) => {
       });
     }
 
+    // Determine user type based on role
+    const userType = getUserTypeFromRole(role);
+
     // Create user
-    const user = await User.create({
+    const userData = {
       firstName,
       lastName,
       email,
       phone,
       password,
-      role
-    });
+      role,
+      userType
+    };
+
+    // Add associateType if role is associate
+    if (role === 'associate') {
+      userData.associateType = associateType || 'freelancer';
+    }
+
+    const user = await User.create(userData);
 
     // Create role-specific profile
-    if (role.includes('client')) {
+    if (role === 'client') {
       await Client.create({
         userId: user._id,
         businessName: additionalData.businessName || '',
@@ -42,10 +54,9 @@ const register = async (req, res) => {
       });
     }
 
-    if (role.includes('associate')) {
+    if (role === 'associate') {
       await Associate.create({
         userId: user._id,
-        associateType: additionalData.associateType || 'freelancer',
         uniqueReferralCode: 'REF' + crypto.randomBytes(4).toString('hex').toUpperCase()
       });
     }
@@ -71,7 +82,9 @@ const register = async (req, res) => {
         lastName: user.lastName,
         email: user.email,
         phone: user.phone,
+        userType: user.userType,
         role: user.role,
+        associateType: user.associateType,
         status: user.status,
         isEmailVerified: user.isEmailVerified,
         kycStatus: user.kycStatus
@@ -160,7 +173,9 @@ const login = async (req, res) => {
         lastName: user.lastName,
         email: user.email,
         phone: user.phone,
+        userType: user.userType,
         role: user.role,
+        associateType: user.associateType,
         status: user.status,
         isEmailVerified: user.isEmailVerified,
         kycStatus: user.kycStatus,
@@ -195,12 +210,12 @@ const getProfile = async (req, res) => {
     let profile = { user };
 
     // Get role-specific profile data
-    if (user.role.includes('client')) {
+    if (user.role === 'client') {
       const clientProfile = await Client.findOne({ userId: user._id });
       profile.clientProfile = clientProfile;
     }
 
-    if (user.role.includes('associate')) {
+    if (user.role === 'associate') {
       const associateProfile = await Associate.findOne({ userId: user._id });
       profile.associateProfile = associateProfile;
     }

@@ -2,18 +2,29 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const Associate = require('../models/Associate');
-const { protect, authorize } = require('../middlewares/auth');
+const { protect, authorizeAdmin } = require('../middlewares/auth');
 const { validateUserRegistration } = require('../middlewares/validation');
+const { getAllInternalRoles, getUserTypeFromRole } = require('../utils/roleUtils');
 const crypto = require('crypto');
 
 // All routes require admin authentication
 router.use(protect);
-router.use(authorize('admin'));
+router.use(authorizeAdmin());
 
 // Create staff account
 const createStaff = async (req, res) => {
   try {
-    const { firstName, lastName, email, phone, password, role, staffType, permissions } = req.body;
+    const { firstName, lastName, email, phone, password, role } = req.body;
+
+    // Validate that role is internal
+    const internalRoles = getAllInternalRoles();
+
+    if (!internalRoles.includes(role)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid role for staff creation'
+      });
+    }
 
     // Check if user already exists
     const existingUser = await User.findOne({
@@ -34,11 +45,10 @@ const createStaff = async (req, res) => {
       email,
       phone,
       password,
+      userType: getUserTypeFromRole(role),
       role,
       status: 'active',
-      isEmailVerified: true, // Staff accounts are pre-verified
-      staffType,
-      permissions: permissions || []
+      isEmailVerified: true // Staff accounts are pre-verified
     });
 
     res.status(201).json({
@@ -50,9 +60,9 @@ const createStaff = async (req, res) => {
         lastName: user.lastName,
         email: user.email,
         phone: user.phone,
+        userType: user.userType,
         role: user.role,
-        status: user.status,
-        staffType: user.staffType
+        status: user.status
       }
     });
 
@@ -68,10 +78,11 @@ const createStaff = async (req, res) => {
 // Get all users with filters
 const getAllUsers = async (req, res) => {
   try {
-    const { role, status, kycStatus, page = 1, limit = 10 } = req.query;
+    const { userType, role, status, kycStatus, page = 1, limit = 10 } = req.query;
     
     const filter = {};
-    if (role) filter.role = { $in: [role] };
+    if (userType) filter.userType = userType;
+    if (role) filter.role = role;
     if (status) filter.status = status;
     if (kycStatus) filter.kycStatus = kycStatus;
 
@@ -152,8 +163,10 @@ const updateUserStatus = async (req, res) => {
 const getSystemStats = async (req, res) => {
   try {
     const stats = await Promise.all([
-      User.countDocuments({ role: { $in: ['client'] } }),
-      User.countDocuments({ role: { $in: ['associate'] } }),
+      User.countDocuments({ role: 'client' }),
+      User.countDocuments({ role: 'associate' }),
+      User.countDocuments({ userType: 'external' }),
+      User.countDocuments({ userType: 'internal' }),
       User.countDocuments({ kycStatus: 'pending' }),
       User.countDocuments({ kycStatus: 'in_progress' }),
       User.countDocuments({ kycStatus: 'completed' }),
@@ -167,12 +180,14 @@ const getSystemStats = async (req, res) => {
       stats: {
         totalClients: stats[0],
         totalAssociates: stats[1],
-        pendingKYC: stats[2],
-        inProgressKYC: stats[3],
-        completedKYC: stats[4],
-        activeUsers: stats[5],
-        suspendedUsers: stats[6],
-        pendingAssociateApprovals: stats[7]
+        totalExternalUsers: stats[2],
+        totalInternalUsers: stats[3],
+        pendingKYC: stats[4],
+        inProgressKYC: stats[5],
+        completedKYC: stats[6],
+        activeUsers: stats[7],
+        suspendedUsers: stats[8],
+        pendingAssociateApprovals: stats[9]
       }
     });
 

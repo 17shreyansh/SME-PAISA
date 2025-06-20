@@ -37,10 +37,31 @@ const userSchema = new mongoose.Schema({
   },
 
   // User Role & Status
+  userType: {
+    type: String,
+    enum: ['external', 'internal'],
+    required: [true, 'User type is required']
+  },
   role: {
-    type: [String],
-    enum: ['client', 'associate', 'coordinator', 'verifier', 'admin'],
+    type: String,
+    enum: [
+      // External Users
+      'client', 'associate',
+      // Internal Users - Admin
+      'super_admin',
+      // Internal Users - Staff
+      'coordinator', 'verifier', 'operations_staff', 'documentation_staff',
+      'credit_team_staff', 'compliance_staff', 'governance_staff',
+      'hr_staff', 'training_staff', 'finance_staff', 'payouts_staff',
+      'internal_sales_rm'
+    ],
     required: [true, 'User role is required']
+  },
+  // For associates - specific type
+  associateType: {
+    type: String,
+    enum: ['freelancer', 'dsa', 'consultant', 'bank_rm'],
+    required: function() { return this.role === 'associate'; }
   },
   status: {
     type: String,
@@ -151,7 +172,9 @@ const userSchema = new mongoose.Schema({
 // Indexes for performance
 userSchema.index({ email: 1 });
 userSchema.index({ phone: 1 });
+userSchema.index({ userType: 1 });
 userSchema.index({ role: 1 });
+userSchema.index({ associateType: 1 });
 userSchema.index({ status: 1 });
 
 // Virtual for account lock status

@@ -64,7 +64,7 @@ const authorize = (...roles) => {
       });
     }
 
-    const hasRole = roles.some(role => req.user.role.includes(role));
+    const hasRole = roles.includes(req.user.role);
     
     if (!hasRole) {
       return res.status(403).json({
@@ -75,6 +75,49 @@ const authorize = (...roles) => {
 
     next();
   };
+};
+
+// Authorize by user type (external/internal)
+const authorizeUserType = (...userTypes) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: 'Access denied. Please login first.'
+      });
+    }
+
+    const hasUserType = userTypes.includes(req.user.userType);
+    
+    if (!hasUserType) {
+      return res.status(403).json({
+        success: false,
+        message: `Access denied. Required user types: ${userTypes.join(', ')}`
+      });
+    }
+
+    next();
+  };
+};
+
+// Authorize admin roles (super_admin)
+const authorizeAdmin = () => {
+  return authorize('super_admin');
+};
+
+// Authorize staff roles (all internal staff)
+const authorizeStaff = () => {
+  return authorize(
+    'coordinator', 'verifier', 'operations_staff', 'documentation_staff',
+    'credit_team_staff', 'compliance_staff', 'governance_staff',
+    'hr_staff', 'training_staff', 'finance_staff', 'payouts_staff',
+    'internal_sales_rm'
+  );
+};
+
+// Authorize internal users (admin + staff)
+const authorizeInternal = () => {
+  return authorizeUserType('internal');
 };
 
 // Check if user has completed KYC
@@ -118,6 +161,10 @@ const requireVerification = (req, res, next) => {
 module.exports = {
   protect,
   authorize,
+  authorizeUserType,
+  authorizeAdmin,
+  authorizeStaff,
+  authorizeInternal,
   requireKYC,
   requireVerification
 };

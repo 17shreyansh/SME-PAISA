@@ -9,12 +9,8 @@ const associateSchema = new mongoose.Schema({
     unique: true
   },
 
-  // Associate Details
-  associateType: {
-    type: String,
-    enum: ['freelancer', 'dsa', 'consultant', 'bank_rm', 'retired_banker'],
-    required: [true, 'Associate type is required']
-  },
+  // Associate Details (type is now stored in User model)
+  // associateType moved to User model for consistency
   uniqueReferralCode: { 
     type: String, 
     unique: true, 
@@ -127,7 +123,6 @@ const associateSchema = new mongoose.Schema({
 associateSchema.index({ userId: 1 });
 associateSchema.index({ uniqueReferralCode: 1 });
 associateSchema.index({ approvalStatus: 1 });
-associateSchema.index({ associateType: 1 });
 associateSchema.index({ assignedRegions: 1 });
 
 // Pre-save middleware to generate referral code

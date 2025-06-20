@@ -34,6 +34,7 @@ app.use(cookieParser());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/staff', require('./routes/staffRoutes'));
 app.use('/api/documents', require('./routes/documentRoutes'));
 
 // Health check

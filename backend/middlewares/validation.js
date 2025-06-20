@@ -1,4 +1,5 @@
 const { body, validationResult } = require('express-validator');
+const { validateRole, validateAssociateType } = require('../utils/roleUtils');
 
 // Handle validation errors
 const handleValidationErrors = (req, res, next) => {
@@ -45,13 +46,24 @@ const validateUserRegistration = [
     .withMessage('Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'),
   
   body('role')
-    .isArray({ min: 1 })
-    .withMessage('At least one role must be specified')
-    .custom((roles) => {
-      const validRoles = ['client', 'associate', 'coordinator', 'verifier', 'admin'];
-      return roles.every(role => validRoles.includes(role));
+    .notEmpty()
+    .withMessage('Role is required')
+    .custom((role) => {
+      return validateRole(role);
     })
     .withMessage('Invalid role specified'),
+  
+  body('associateType')
+    .optional()
+    .custom((type, { req }) => {
+      if (req.body.role === 'associate' && !type) {
+        throw new Error('Associate type is required for associate role');
+      }
+      if (type && !validateAssociateType(type)) {
+        throw new Error('Invalid associate type');
+      }
+      return true;
+    }),
   
   handleValidationErrors
 ];
@@ -139,7 +151,9 @@ const validateClientProfile = [
 // Associate profile validation
 const validateAssociateProfile = [
   body('associateType')
-    .isIn(['freelancer', 'dsa', 'consultant', 'bank_rm', 'retired_banker'])
+    .custom((type) => {
+      return validateAssociateType(type);
+    })
     .withMessage('Invalid associate type'),
   
   body('experience')
