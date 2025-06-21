@@ -7,6 +7,8 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Index from './pages/Home.jsx';
 import AboutUs from './pages/About.jsx';
+import KYCUpload from './pages/auth/KYCUpload.jsx';
+import VerifyEmail from './pages/auth/VerifyEmail.jsx';
 
 function App() {
   const location = useLocation();
@@ -17,6 +19,8 @@ function App() {
       {!hideHeaderFooter && <Header />}
       <Routes>
         <Route path="/register" element={<Register />} />
+        <Route path="/kyc-upload" element={<KYCUpload />} />
+        <Route path="/verify-email/:token" element={<VerifyEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
