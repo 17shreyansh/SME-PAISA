@@ -55,6 +55,10 @@ const associateSchema = new mongoose.Schema({
     cgtmse: { type: Number, default: 1.0 },
     corporateFinance: { type: Number, default: 0.25 }
   },
+  commissionRate: {
+    type: Number, // percentage (e.g., 10 for 10%)
+    default: 5 // default 5% if not set by admin
+  },
 
   // Regional Assignment
   assignedRegions: [{

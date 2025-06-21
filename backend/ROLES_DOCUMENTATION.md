@@ -104,6 +104,40 @@ All staff have `userType: 'internal'` and specific role-based permissions:
 - `PUT /api/staff/associates/:associateId/status` - Update associate status
 - `GET /api/staff/dashboard` - Get role-specific dashboard data
 
+### Associate & Commission Management System (Module 3)
+
+#### Admin APIs
+
+- `GET /api/admin/associates/clients` — List all associates, their clients, and activity (client count, KYC completed count)
+- `GET /api/admin/associates/:associateId/commission` — Calculate and view commission for an associate (e.g., Rs. 1000 per client with completed KYC)
+
+##### Example Response for `/api/admin/associates/clients`
+```json
+{
+  "success": true,
+  "associates": [
+    {
+      "associate": { "userId": { "firstName": "...", ... }, ... },
+      "clients": [ { "userId": { "firstName": "...", "kycStatus": "completed" }, ... } ],
+      "clientCount": 5,
+      "kycCompleted": 3
+    }
+  ]
+}
+```
+
+##### Example Response for `/api/admin/associates/:associateId/commission`
+```json
+{
+  "success": true,
+  "commission": 3000,
+  "completedClients": 3
+}
+```
+
+- Commission logic can be made dynamic as per business rules.
+- All endpoints require admin authentication.
+
 ## Database Schema Updates
 
 ### User Model Changes

@@ -6,6 +6,7 @@ const { protect, authorizeAdmin } = require('../middlewares/auth');
 const { validateUserRegistration } = require('../middlewares/validation');
 const { getAllInternalRoles, getUserTypeFromRole } = require('../utils/roleUtils');
 const crypto = require('crypto');
+const { getAssociatesWithClients, getAssociateCommission } = require('../controllers/associateAdminController');
 
 // All routes require admin authentication
 router.use(protect);
@@ -205,5 +206,9 @@ router.post('/create-staff', validateUserRegistration, createStaff);
 router.get('/users', getAllUsers);
 router.put('/users/:userId/status', updateUserStatus);
 router.get('/stats', getSystemStats);
+// List all associates with their clients and activity
+router.get('/associates/clients', getAssociatesWithClients);
+// Get commission for an associate
+router.get('/associates/:associateId/commission', getAssociateCommission);
 
 module.exports = router;
