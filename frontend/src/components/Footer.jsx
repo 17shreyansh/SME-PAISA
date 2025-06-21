@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-start py-4 w-100">
+    <footer className="bg-dark text-white text-start py-4 w-100 footer-bottom">
       <div className="container-fluid">
         <div className="row">
           {/* Company Info */}

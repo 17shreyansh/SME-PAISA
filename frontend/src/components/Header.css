@@ -1,0 +1,27 @@
+.btn, .form-control {
+  border-radius: 4px;
+}
+
+.btn-orange {
+  background-color: #f7931e;
+  color: white;
+}
+.btn-orange:hover {
+  background-color: #d87a16;
+  color: white;
+}
+
+.hover-text-orange:hover {
+  color: #f7931e !important;
+}
+
+.hover-bg-light:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 991px) {
+  .container-fluid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
