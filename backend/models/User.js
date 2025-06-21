@@ -97,12 +97,20 @@ const userSchema = new mongoose.Schema({
       frontImage: {
         filename: String,
         path: String,
-        uploadDate: Date
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String // 'client' or 'associate'
+        }
       },
       backImage: {
         filename: String,
         path: String,
-        uploadDate: Date
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
       },
       verified: { type: Boolean, default: false },
       verifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -117,7 +125,11 @@ const userSchema = new mongoose.Schema({
       image: {
         filename: String,
         path: String,
-        uploadDate: Date
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
       },
       verified: { type: Boolean, default: false },
       verifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -135,12 +147,60 @@ const userSchema = new mongoose.Schema({
       chequeImage: {
         filename: String,
         path: String,
-        uploadDate: Date
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
       },
       verified: { type: Boolean, default: false },
       verifiedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
       verificationDate: Date,
       rejectionReason: String
+    },
+    gstReturns: [{
+      month: String,
+      file: {
+        filename: String,
+        path: String,
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
+      }
+    }],
+    bankStatements: [{
+      month: String,
+      file: {
+        filename: String,
+        path: String,
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
+      }
+    }],
+    balanceSheets: {
+      currentYear: {
+        filename: String,
+        path: String,
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
+      },
+      lastYear: {
+        filename: String,
+        path: String,
+        uploadDate: Date,
+        uploadedBy: {
+          user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+          role: String
+        }
+      }
     }
   },
 

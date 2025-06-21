@@ -76,7 +76,11 @@ const uploadDocuments = {
     { name: 'aadharFront', maxCount: 1 },
     { name: 'aadharBack', maxCount: 1 },
     { name: 'panCard', maxCount: 1 },
-    { name: 'chequeImage', maxCount: 1 }
+    { name: 'chequeImage', maxCount: 1 },
+    { name: 'gstReturns', maxCount: 12 },
+    { name: 'bankStatements', maxCount: 12 },
+    { name: 'balanceSheetCurrent', maxCount: 1 },
+    { name: 'balanceSheetLast', maxCount: 1 }
   ]),
   
   // Profile image

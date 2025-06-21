@@ -8,7 +8,14 @@ const uploadKYCDocuments = async (req, res) => {
     const userId = req.user.id;
     const { aadharNumber, panNumber, accountNumber, ifscCode, bankName, branchName } = req.body;
     
-    const user = await User.findById(userId);
+    // Determine who is uploading (client or associate)
+    let targetUserId = req.user.id;
+    let uploader = { user: req.user.id, role: req.user.role };
+    if (req.user.role === 'associate' && req.body.clientId) {
+      targetUserId = req.body.clientId;
+    }
+
+    const user = await User.findById(targetUserId);
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -29,15 +36,16 @@ const uploadKYCDocuments = async (req, res) => {
         updateData['documents.aadhar.frontImage'] = {
           filename: req.files.aadharFront[0].filename,
           path: req.files.aadharFront[0].path,
-          uploadDate: new Date()
+          uploadDate: new Date(),
+          uploadedBy: uploader
         };
       }
-
       if (req.files.aadharBack) {
         updateData['documents.aadhar.backImage'] = {
           filename: req.files.aadharBack[0].filename,
           path: req.files.aadharBack[0].path,
-          uploadDate: new Date()
+          uploadDate: new Date(),
+          uploadedBy: uploader
         };
       }
     }
@@ -53,7 +61,8 @@ const uploadKYCDocuments = async (req, res) => {
         updateData['documents.pan.image'] = {
           filename: req.files.panCard[0].filename,
           path: req.files.panCard[0].path,
-          uploadDate: new Date()
+          uploadDate: new Date(),
+          uploadedBy: uploader
         };
       }
     }
@@ -72,9 +81,54 @@ const uploadKYCDocuments = async (req, res) => {
         updateData['documents.bankDetails.chequeImage'] = {
           filename: req.files.chequeImage[0].filename,
           path: req.files.chequeImage[0].path,
-          uploadDate: new Date()
+          uploadDate: new Date(),
+          uploadedBy: uploader
         };
       }
+    }
+
+    // Handle GST Returns (12 months)
+    if (req.files.gstReturns) {
+      updateData['documents.gstReturns'] = req.files.gstReturns.map((file, idx) => ({
+        month: req.body[`gstMonth${idx}`] || '',
+        file: {
+          filename: file.filename,
+          path: file.path,
+          uploadDate: new Date(),
+          uploadedBy: uploader
+        }
+      }));
+    }
+
+    // Handle Bank Statements (12 months)
+    if (req.files.bankStatements) {
+      updateData['documents.bankStatements'] = req.files.bankStatements.map((file, idx) => ({
+        month: req.body[`bankMonth${idx}`] || '',
+        file: {
+          filename: file.filename,
+          path: file.path,
+          uploadDate: new Date(),
+          uploadedBy: uploader
+        }
+      }));
+    }
+
+    // Handle Balance Sheets
+    if (req.files.balanceSheetCurrent) {
+      updateData['documents.balanceSheets.currentYear'] = {
+        filename: req.files.balanceSheetCurrent[0].filename,
+        path: req.files.balanceSheetCurrent[0].path,
+        uploadDate: new Date(),
+        uploadedBy: uploader
+      };
+    }
+    if (req.files.balanceSheetLast) {
+      updateData['documents.balanceSheets.lastYear'] = {
+        filename: req.files.balanceSheetLast[0].filename,
+        path: req.files.balanceSheetLast[0].path,
+        uploadDate: new Date(),
+        uploadedBy: uploader
+      };
     }
 
     // Update KYC status

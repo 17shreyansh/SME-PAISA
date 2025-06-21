@@ -12,6 +12,7 @@ const app = express();
 // Connect to database
 connectDB();
 
+
 // Security middleware
 app.use(helmet());
 app.use(cors({
