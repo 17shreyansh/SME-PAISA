@@ -1,0 +1,22 @@
+.bi {
+    font-size: 1.2rem;
+  }
+  
+  a:hover {
+    color: #f7931e !important; /* Orange color matching the image */
+  }
+  
+  @media (max-width: 767.98px) {
+    .col-md-3 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+  
+  footer {
+    width: 100%;
+  }
+  
+  .text-start {
+    text-align: start;
+  }

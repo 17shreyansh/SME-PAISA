@@ -1,0 +1,22 @@
+.btn-purple {
+  background-color: #6f42c1;
+  color: white;
+}
+.btn-purple:hover {
+  background-color: #5a2f9d;
+  color: white;
+}
+
+.form-control, .btn, .form-select, .input-group .btn, .input-group .form-control {
+  border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+  .row > .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .card {
+    padding: 1rem;
+  }
+}

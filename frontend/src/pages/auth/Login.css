@@ -1,0 +1,9 @@
+.form-control, .btn {
+  border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 1rem;
+  }
+}
