@@ -8,7 +8,7 @@ const Header = () => {
 
   const menuItems = [
     { label: 'Home', href: '/' },
-    { label: 'About Us', href: '#about' },
+    { label: 'About Us', href: 'about' },
     { label: 'Loan Products', href: '#products' },
     { label: 'Apply Now', href: '#apply' },
     { label: 'Become Associate', href: '#associate' },

@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* Custom */
+
+.btn-orange-500 {
+  background-color: #f97316;
+  color: white;
+}
+
+.btn-outline-orange-500 {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.hover-text-orange:hover {
+  color: #f97316 !important;
+  transition: all 0.3s ease;
+}
