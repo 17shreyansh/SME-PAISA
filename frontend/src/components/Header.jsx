@@ -9,12 +9,12 @@ const Header = () => {
   const menuItems = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: 'about' },
-    { label: 'Loan Products', href: '#products' },
-    { label: 'Apply Now', href: '#apply' },
-    { label: 'Become Associate', href: '#associate' },
-    { label: 'Knowledge Hub', href: '#knowledge' },
-    { label: 'Track My Case', href: '#track' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Loan Products', href: 'products' },
+    { label: 'Apply Now', href: 'apply' },
+    { label: 'Become Associate', href: 'associate' },
+    { label: 'Knowledge Hub', href: 'knowledge' },
+    { label: 'Track My Case', href: 'track' },
+    { label: 'Contact', href: 'contact' }
   ];
 
   return (

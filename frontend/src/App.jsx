@@ -10,6 +10,7 @@ import AboutUs from './pages/About.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import KYCUpload from './pages/auth/KYCUpload.jsx';
 import VerifyEmail from './pages/auth/VerifyEmail.jsx';
+import KnowledgeHub from './pages/KnowledgeHub.jsx';
 
 function App() {
   const location = useLocation();
@@ -25,7 +26,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/knowledge" element={<KnowledgeHub />} />
       </Routes>
       {!hideHeaderFooter && <Footer />}
     </>
