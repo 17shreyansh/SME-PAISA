@@ -10,6 +10,7 @@ import AboutUs from './pages/About.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import KYCUpload from './pages/auth/KYCUpload.jsx';
 import VerifyEmail from './pages/auth/VerifyEmail.jsx';
+import TriggerEmailVerification from './pages/auth/TriggerEmailVerification.jsx';
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/kyc-upload" element={<KYCUpload />} />
         <Route path="/verify-email/:token" element={<VerifyEmail />} />
+        <Route path="/trigger-email-verification" element={<TriggerEmailVerification />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
