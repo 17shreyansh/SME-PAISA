@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -38,6 +37,9 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/staff', require('./routes/staffRoutes'));
 app.use('/api/documents', require('./routes/documentRoutes'));
+app.use('/api/loan-applications', require('./routes/loanApplicationRoutes'));
+app.use('/api/document-workflow', require('./routes/documentWorkflowRoutes'));
+app.use('/api/chat', require('./routes/chatRoutes'));
 
 // Health check
 app.get('/health', (req, res) => {
