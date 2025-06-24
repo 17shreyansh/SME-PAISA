@@ -96,7 +96,7 @@ const KYCUpload = () => {
     formDataToSend.append('chequeImage', formData.chequeImage);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/documents/upload', formDataToSend, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/documents/upload`, formDataToSend, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true,
       });

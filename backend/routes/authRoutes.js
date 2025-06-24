@@ -6,7 +6,9 @@ const {
   logout,
   getProfile,
   changePassword,
-  verifyEmail
+  verifyEmail,
+  sendVerificationEmailEndpoint,
+  getVerificationStatus
 } = require('../controllers/authController');
 const { protect } = require('../middlewares/auth');
 const {
@@ -26,5 +28,7 @@ router.use(protect); // All routes below require authentication
 router.post('/logout', logout);
 router.get('/profile', getProfile);
 router.put('/change-password', validatePasswordChange, changePassword);
+router.post('/send-verification-email', sendVerificationEmailEndpoint);
+router.get('/verification-status', getVerificationStatus);
 
 module.exports = router;

@@ -16,9 +16,9 @@ connectDB();
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow only your frontend's origin
+  origin: 'http://127.0.0.1:5173', // Allow only your frontend's origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
-  credentials: true
+  credentials: true 
 }));
 
 // Rate limiting

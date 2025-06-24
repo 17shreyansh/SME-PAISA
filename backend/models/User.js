@@ -36,6 +36,7 @@ const userSchema = new mongoose.Schema({
     select: false
   },
 
+
   // User Role & Status
   userType: {
     type: String,
@@ -72,8 +73,8 @@ const userSchema = new mongoose.Schema({
   // Verification & Security
   isEmailVerified: { type: Boolean, default: false },
   isPhoneVerified: { type: Boolean, default: false },
-  emailVerificationToken: String,
-  emailVerificationExpiry: Date,
+  emailVerificationToken: { type: String, select: false },
+  emailVerificationExpiry: { type: Date, select: false },
   phoneVerificationOTP: String,
   otpExpiry: Date,
   lastLogin: Date,
@@ -285,6 +286,8 @@ userSchema.methods.incLoginAttempts = function() {
 
 // Method to generate email verification token
 userSchema.methods.generateEmailVerificationToken = function() {
+  // This method is now handled in the controller to use JWT
+  // Keeping this for compatibility but it won't be used
   const token = crypto.randomBytes(32).toString('hex');
   this.emailVerificationToken = crypto.createHash('sha256').update(token).digest('hex');
   this.emailVerificationExpiry = Date.now() + 24 * 60 * 60 * 1000; // 24 hours

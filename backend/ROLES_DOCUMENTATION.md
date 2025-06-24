@@ -10,7 +10,7 @@ External users are customers and partners who use the platform from outside the 
 
 #### 1. Clients (MSMEs / Business Owners)
 - **Role**: `client`
-- **User Type**: `external`
+- **User `Type**: `exter`nal`
 - **Description**: Small and Medium Enterprises or Business Owners seeking financial services
 - **Capabilities**: 
   - Apply for loans
