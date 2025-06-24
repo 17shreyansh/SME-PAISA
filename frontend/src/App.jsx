@@ -24,7 +24,7 @@ function App() {
         <Route path="/kyc-upload" element={<KYCUpload />} />
         <Route path="/verify-email/:token" element={<VerifyEmail />} />
         <Route path="/trigger-email-verification" element={<TriggerEmailVerification />} />
-
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
