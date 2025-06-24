@@ -7,9 +7,9 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Index from './pages/Home.jsx';
 import AboutUs from './pages/About.jsx';
+import ContactUs from './pages/ContactUs.jsx';
 import KYCUpload from './pages/auth/KYCUpload.jsx';
 import VerifyEmail from './pages/auth/VerifyEmail.jsx';
-import TriggerEmailVerification from './pages/auth/TriggerEmailVerification.jsx';
 
 function App() {
   const location = useLocation();
@@ -25,7 +25,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/trigger-email-verification" element={<TriggerEmailVerification />} />
       </Routes>
       {!hideHeaderFooter && <Footer />}
     </>
