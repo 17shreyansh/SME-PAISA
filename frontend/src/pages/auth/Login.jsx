@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   // State for form data, loading, and error messages
@@ -54,13 +54,13 @@ const Login = () => {
 
   return (
     <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light p-4">
-      <div className="card shadow-lg p-4" style={{ maxWidth: '400px', width: '100%' }}>
+      <div className="card shadow-lg p-4 login-card-custom">
         {/* Header section */}
         <div className="text-center mb-5">
-          <div className="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: '60px', height: '60px' }}>
-            <i className="bi bi-envelope-fill text-primary" style={{ fontSize: '24px' }}></i>
+          <div className="d-flex align-items-center justify-content-center mx-auto mb-3 login-icon-circle">
+            <i className="bi bi-envelope-fill text-black"></i>
           </div>
-          <h2 className="text-orange mb-1">SME PAISA</h2>
+          <h2 className="text-black mb-1">SME PAISA</h2>
           <h4 className="mb-0">Welcome Back</h4>
           <p className="text-muted">Sign in to your account to continue</p>
         </div>
@@ -99,13 +99,13 @@ const Login = () => {
               <input type="checkbox" className="form-check-input" id="rememberMe" />
               <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
             </div>
-            <a href="/forgot-password" className="text-orange text-decoration-none">Forgot password?</a>
+            <Link to="/forgot-password" className="text-black text-decoration-none">Forgot password?</Link>
           </div>
-          <button type="submit" className="btn btn-primary w-100 py-2" disabled={loading}>
+          <button type="submit" className="btn btn-black w-100 py-2" disabled={loading}>
             {loading ? 'Signing In...' : 'Sign In'}
           </button>
           <p className="text-center mt-4 text-muted">
-            Don't have an account? <a href="/register" className="text-orange text-decoration-none">Register here</a>
+            Don't have an account? <Link to="/register" className="text-black text-decoration-none">Register here</Link>
           </p>
         </form>
       </div>

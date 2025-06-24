@@ -68,3 +68,105 @@
   color: #f97316 !important;
   transition: all 0.3s ease;
 }
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+}
+
+* {
+  border-radius: 12px !important;
+  box-sizing: border-box;
+}
+
+input, select, textarea {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 12px;
+  transition: background 0.1s, color 0.1s, border 0.1s;
+}
+
+button, .btn, .btn-black {
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000 !important;
+  border-radius: 10px !important;
+  transition: background 0.1s, color 0.1s, border 0.1s;
+  font-weight: 500;
+}
+
+button:hover, .btn:hover, .btn-black:hover {
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+a, .nav-link, .link {
+  color: #000;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.1s, color 0.1s;
+}
+
+a:hover, .nav-link:hover, .link:hover {
+  background: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
+
+.ant-layout, .ant-layout-content, .ant-layout-sider {
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+}
+
+.ant-menu, .ant-menu-item, .ant-menu-submenu {
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+  transition: background 0.1s, color 0.1s !important;
+}
+
+.ant-menu-item-selected, .ant-menu-item-active {
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  transition: background 0.1s, color 0.1s !important;
+}
+
+.card, .form-control, .alert, .shadow-lg, .shadow-sm {
+  border-radius: 12px !important;
+  transition: background 0.1s, color 0.1s, border 0.1s;
+}
+
+.d-flex, .row, .container, .text-center, .align-items-center, .justify-content-center {
+  /* align-items: center !important;
+  justify-content: center !important; */
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #fff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 12px;
+}
+
+/* Sidebar collapsed: hide label text even on hover */
+.sidebar-collapsed .ant-menu-item > a {
+  width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+.sidebar-collapsed .ant-menu-item {
+  justify-content: center !important;
+}

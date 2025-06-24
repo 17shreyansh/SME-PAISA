@@ -7,3 +7,31 @@
     padding: 1rem;
   }
 }
+
+/* Custom card for login page with max width */
+.login-card-custom {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Custom icon circle for login page */
+.login-icon-circle {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+}
+
+/* Custom card for KYC upload page with max width */
+.kyc-card-custom {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Custom icon circle for KYC upload page */
+.kyc-icon-circle {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+}
+
+/* Remove all gradient backgrounds, colored text, and icon backgrounds. Only allow black and white backgrounds and text. Set a global border-radius of 12px for all cards, buttons, and inputs. Remove any custom color classes. Remove author-avatar backgrounds. Remove all unnecessary color rules. Use only Bootstrap spacing utilities for gaps and margins. */

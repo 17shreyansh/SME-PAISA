@@ -189,17 +189,16 @@ const KnowledgeHub = () => {
     <div className="d-flex flex-column gap-5">
       {/* Featured Posts */}
       <div className="mb-5">
-        <h2 className="h4 fw-bold mb-4 text-dark">Featured Articles</h2>
+        <h2 className="h4 fw-bold mb-4 text-black">Featured Articles</h2>
         <div className="row g-4">
           {blogPosts.filter(post => post.featured).map((post) => (
             <div key={post.id} className="col-lg-6" data-testid="blog-post">
-              <div className="card h-100 border-0 shadow-sm rounded-3 overflow-hidden animate-fade-in blog-card">
+              <div className="card h-100 border-0 shadow-sm rounded-1 overflow-hidden animate-fade-in blog-card">
                 <div className="position-relative overflow-hidden">
                   <img 
                     src={post.image} 
                     alt={post.title}
-                    className="card-img-top object-fit-cover"
-                    style={{ height: '12rem' }}
+                    className="w-100"
                   />
                   <div className="position-absolute top-0 start-0 m-3">
                     <span className="badge bg-dark text-white">
@@ -208,9 +207,9 @@ const KnowledgeHub = () => {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h3 className="card-title h5 fw-bold mb-3 text-dark line-clamp-2">{post.title}</h3>
-                  <p className="card-text text-muted mb-4 line-clamp-2">{post.excerpt}</p>
-                  <div className="d-flex flex-wrap justify-content-between text-muted small">
+                  <h3 className="card-title h5 fw-bold mb-3 text-black line-clamp-2">{post.title}</h3>
+                  <p className="card-text text-black mb-4 line-clamp-2">{post.excerpt}</p>
+                  <div className="d-flex flex-wrap justify-content-between text-black small">
                     <div className="d-flex align-items-center gap-3">
                       <span className="d-flex align-items-center">
                         <User size={16} className="me-1" />
@@ -241,7 +240,7 @@ const KnowledgeHub = () => {
 
       {/* All Posts */}
       <div>
-        <h2 className="h4 fw-bold mb-4 text-dark">Latest Articles</h2>
+        <h2 className="h4 fw-bold mb-4 text-black">Latest Articles</h2>
         <div className="row g-4">
           {blogPosts.map((post) => (
             <div key={post.id} className="col-md-6 col-lg-4" data-testid="blog-post">
@@ -260,13 +259,13 @@ const KnowledgeHub = () => {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h3 className="card-title h6 fw-bold mb-2 text-dark line-clamp-2">{post.title}</h3>
-                  <p className="card-text text-muted small mb-3 line-clamp-2">{post.excerpt}</p>
-                  <div className="d-flex justify-content-between text-muted small">
+                  <h3 className="card-title h6 fw-bold mb-2 text-black line-clamp-2">{post.title}</h3>
+                  <p className="card-text text-black small mb-3 line-clamp-2">{post.excerpt}</p>
+                  <div className="d-flex justify-content-between text-black small">
                     <span>{post.author}</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <button className="btn btn-link p-0 mt-2 text-dark small fw-semibold d-flex align-items-center text-decoration-none hover-underline">
+                  <button className="btn">
                     Read More <ArrowRight size={16} className="ms-1" />
                   </button>
                 </div>
@@ -283,7 +282,7 @@ const KnowledgeHub = () => {
     <div className="d-flex flex-column gap-5">
       {/* Featured Videos */}
       <div className="mb-5">
-        <h2 className="h4 fw-bold mb-4 text-dark">Featured Videos</h2>
+        <h2 className="h4 fw-bold mb-4 text-black">Featured Videos</h2>
         <div className="row g-4">
           {videos.filter(video => video.featured).map((video) => (
             <div key={video.id} className="col-lg-6" data-testid="video">
@@ -297,7 +296,7 @@ const KnowledgeHub = () => {
                   />
                   <div className="position-absolute inset-0 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center opacity-0 hover-opacity-100">
                     <div className="bg-white rounded-circle p-3 transform scale-75 hover-scale-100">
-                      <Play size={24} className="text-dark" />
+                      <Play size={24} className="text-black" />
                     </div>
                   </div>
                   <div className="position-absolute top-0 start-0 m-3">
@@ -312,9 +311,9 @@ const KnowledgeHub = () => {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h3 className="card-title h5 fw-bold mb-3 text-dark line-clamp-2">{video.title}</h3>
-                  <p className="card-text text-muted mb-4">{video.description}</p>
-                  <div className="d-flex justify-content-between text-muted small">
+                  <h3 className="card-title h5 fw-bold mb-3 text-black line-clamp-2">{video.title}</h3>
+                  <p className="card-text text-black mb-4">{video.description}</p>
+                  <div className="d-flex justify-content-between text-black small">
                     <span className="d-flex align-items-center">
                       <Eye size={16} className="me-1" />
                       {video.views.toLocaleString()} views
@@ -333,7 +332,7 @@ const KnowledgeHub = () => {
 
       {/* All Videos */}
       <div>
-        <h2 className="h4 fw-bold mb-4 text-dark">Video Library</h2>
+        <h2 className="h4 fw-bold mb-4 text-black">Video Library</h2>
         <div className="row g-4">
           {videos.map((video) => (
             <div key={video.id} className="col-md-6 col-lg-4" data-testid="video">
@@ -347,7 +346,7 @@ const KnowledgeHub = () => {
                   />
                   <div className="position-absolute inset-0 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center opacity-0 hover-opacity-100">
                     <div className="bg-white rounded-circle p-2 transform scale-75 hover-scale-100">
-                      <Play size={20} className="text-dark" />
+                      <Play size={20} className="text-black" />
                     </div>
                   </div>
                   <div className="position-absolute top-0 start-0 m-2">
@@ -362,9 +361,9 @@ const KnowledgeHub = () => {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h3 className="card-title h6 fw-bold mb-2 text-dark line-clamp-2">{video.title}</h3>
-                  <p className="card-text text-muted small mb-3 line-clamp-2">{video.description}</p>
-                  <div className="d-flex justify-content-between text-muted small">
+                  <h3 className="card-title h6 fw-bold mb-2 text-black line-clamp-2">{video.title}</h3>
+                  <p className="card-text text-black small mb-3 line-clamp-2">{video.description}</p>
+                  <div className="d-flex justify-content-between text-black small">
                     <span>{video.views.toLocaleString()} views</span>
                     <span>{new Date(video.date).toLocaleDateString()}</span>
                   </div>
@@ -392,15 +391,15 @@ const KnowledgeHub = () => {
             <div className="d-flex align-items-start justify-content-between mb-4">
               <div className="d-flex align-items-center">
                 <div className="bg-light rounded-2 p-2 me-3">
-                  <FileText size={24} className="text-muted" />
+                  <FileText size={24} className="text-black" />
                 </div>
-                <span className="badge bg-light text-muted">{doc.type}</span>
+                <span className="badge bg-light text-black">{doc.type}</span>
               </div>
-              <span className="small text-muted">{doc.size}</span>
+              <span className="small text-black">{doc.size}</span>
             </div>
-            <h3 className="card-title h6 fw-bold mb-2 text-dark line-clamp-2">{doc.title}</h3>
-            <p className="card-text text-muted small mb-4 line-clamp-2">{doc.description}</p>
-            <div className="d-flex justify-content-between text-muted small mb-4">
+            <h3 className="card-title h6 fw-bold mb-2 text-black line-clamp-2">{doc.title}</h3>
+            <p className="card-text text-black small mb-4 line-clamp-2">{doc.description}</p>
+            <div className="d-flex justify-content-between text-black small mb-4">
               <span className="d-flex align-items-center">
                 <Download size={16} className="me-1" />
                 {doc.downloads.toLocaleString()} downloads
@@ -417,7 +416,7 @@ const KnowledgeHub = () => {
               </button>
             </div>
             <div className="mt-3">
-              <span className="badge bg-light text-muted">{doc.category}</span>
+              <span className="badge bg-light text-black">{doc.category}</span>
             </div>
           </div>
         </div>
@@ -426,7 +425,7 @@ const KnowledgeHub = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white text-dark">
+    <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="hero-section py-5 py-lg-7 text-center bg-gradient-light">
         <div className="container">
@@ -434,11 +433,11 @@ const KnowledgeHub = () => {
             <h1 className="display-4 fw-bold mb-4">
               Knowledge <span className="gradient-text">Hub</span>
             </h1>
-            <p className="lead text-muted mb-5">
+            <p className="lead text-black mb-5">
               Explore our comprehensive library of resources, insights, and tools designed to empower your business journey.
             </p>
             <div className="position-relative max-w-2xl mx-auto">
-              <Search className="position-absolute start-0 top-50 translate-middle-y ms-3 text-muted" size={20} />
+              <Search className="position-absolute start-0 top-50 translate-middle-y ms-3 text-black" size={20} />
               <input
                 type="text"
                 placeholder="Search articles, videos, documents..."
@@ -464,7 +463,7 @@ const KnowledgeHub = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`nav-link flex-grow-1 d-flex align-items-center px-4 py-2 ${activeTab === tab.id ? 'active bg-dark text-white' : 'text-muted hover-bg-light-dark'}`}
+                  className={`nav-link flex-grow-1 d-flex align-items-center me-1 px-4 py-2 ${activeTab === tab.id ? 'active bg-dark text-white' : 'text-black bg-light'}`}
                 >
                   <tab.icon size={20} className="me-2" />
                   {tab.label}
@@ -472,7 +471,7 @@ const KnowledgeHub = () => {
               ))}
             </div>
             <div className="d-flex align-items-center gap-3">
-              <Filter size={20} className="text-muted" />
+              <Filter size={20} className="text-black" />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}

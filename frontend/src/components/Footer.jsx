@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,10 +15,10 @@ const Footer = () => {
               Empowering MSMEs with fast, secure, and affordable financing solutions. Your trusted partner for business growth.
             </p>
             <div className="d-flex gap-2">
-              <a href="#" className="text-white"><i className="bi bi-facebook"></i></a>
-              <a href="#" className="text-white"><i className="bi bi-twitter"></i></a>
-              <a href="#" className="text-white"><i className="bi bi-linkedin"></i></a>
-              <a href="#" className="text-white"><i className="bi bi-instagram"></i></a>
+              <Link to="#" className="text-white"><i className="bi bi-facebook"></i></Link>
+              <Link to="#" className="text-white"><i className="bi bi-twitter"></i></Link>
+              <Link to="#" className="text-white"><i className="bi bi-linkedin"></i></Link>
+              <Link to="#" className="text-white"><i className="bi bi-instagram"></i></Link>
             </div>
           </div>
 
@@ -26,7 +27,7 @@ const Footer = () => {
             <h4 className="text-white mb-3">Quick Links</h4>
             <ul className="list-unstyled">
               {['About Us', 'Loan Products', 'Apply Now', 'Partner with Us', 'Knowledge Hub', 'Contact Us'].map((link) => (
-                <li key={link}><a href="#" className="text-white text-decoration-none text-start">{link}</a></li>
+                <li key={link}><Link to="#" className="text-white text-decoration-none text-start">{link}</Link></li>
               ))}
             </ul>
           </div>
@@ -36,7 +37,7 @@ const Footer = () => {
             <h4 className="text-white mb-3">Loan Products</h4>
             <ul className="list-unstyled">
               {['Working Capital', 'Vyapar+ Loans', 'CGTMSE Loans', 'Term Loans', 'Corporate Finance', 'Equipment Finance'].map((product) => (
-                <li key={product}><a href="#" className="text-white text-decoration-none text-start">{product}</a></li>
+                <li key={product}><Link to="#" className="text-white text-decoration-none text-start">{product}</Link></li>
               ))}
             </ul>
           </div>
@@ -57,9 +58,9 @@ const Footer = () => {
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
           <p className="text-white mb-0 text-start">© 2024 SME PAISA. All rights reserved.</p>
           <div className="d-flex gap-3">
-            <a href="#" className="text-white text-decoration-none text-start">Privacy Policy</a>
-            <a href="#" className="text-white text-decoration-none text-start">Terms of Service</a>
-            <a href="#" className="text-white text-decoration-none text-start">Cookie Policy</a>
+            <Link to="#" className="text-white text-decoration-none text-start">Privacy Policy</Link>
+            <Link to="#" className="text-white text-decoration-none text-start">Terms of Service</Link>
+            <Link to="#" className="text-white text-decoration-none text-start">Cookie Policy</Link>
           </div>
         </div>
       </div>

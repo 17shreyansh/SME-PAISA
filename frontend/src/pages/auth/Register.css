@@ -20,3 +20,5 @@
     padding: 1rem;
   }
 }
+
+/* Remove all colored backgrounds, colored text, and icon backgrounds. Only allow black and white backgrounds and text. Set a global border-radius of 12px for all cards, buttons, and inputs. Remove any custom color classes. Remove all unnecessary color rules. Use only Bootstrap spacing utilities for gaps and margins. */

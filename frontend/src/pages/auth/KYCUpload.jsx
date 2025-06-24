@@ -114,12 +114,12 @@ const KYCUpload = () => {
 
   return (
     <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light p-4">
-      <div className="card shadow-lg p-4" style={{ maxWidth: '800px', width: '100%' }}>
+      <div className="card shadow-lg p-4 kyc-card-custom">
         <div className="text-center mb-5">
-          <div className="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center mx-auto mb-3" style={{ width: '60px', height: '60px' }}>
-            <i className="bi bi-file-earmark-text-fill text-success" style={{ fontSize: '24px' }}></i>
+          <div className="d-flex align-items-center justify-content-center mx-auto mb-3">
+            <i className="bi bi-file-earmark-text-fill text-black"></i>
           </div>
-          <h2 className="text-orange mb-1">SME PAISA</h2>
+          <h2 className="text-black mb-1">SME PAISA</h2>
           <h4 className="mb-0">KYC Verification</h4>
           <p className="text-muted">Upload your KYC documents for verification</p>
         </div>

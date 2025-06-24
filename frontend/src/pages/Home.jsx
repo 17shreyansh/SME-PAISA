@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import { Clock, ShieldCheck, Users, TrendingUp, Shield, CreditCard, Check, ArrowRight, Star } from 'lucide-react';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white text-dark">
+    <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="hero-section py-5 py-lg-7 bg-gradient-dark text-white position-relative">
         <div className="container">
@@ -20,30 +21,31 @@ const Home = () => {
               <div className="d-flex flex-column gap-3 mb-5">
                 <div className="d-flex align-items-center gap-2">
                   <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <Clock size={20} className="text-white" />
+                    <Clock size={20} className="text-black" />
                   </div>
                   <span>Quick Response - Get callback within 2 hours</span>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <ShieldCheck size={20} className="text-white" />
+                    <ShieldCheck size={20} className="text-black" />
                   </div>
                   <span>No Spam Promise - We respect your privacy</span>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <Users size={20} className="text-white" />
+                    <Users size={20} className="text-black" />
                   </div>
                   <span>Expert Guidance - Dedicated relationship manager</span>
                 </div>
               </div>
               <div className="d-flex flex-column flex-sm-row gap-3">
-                <a href="#apply" className="btn btn-light btn-lg px-5 py-3 fw-semibold">
+                {/* Main CTA Buttons - Use Bootstrap and custom class for black button */}
+                <Link to="/apply" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
                   Apply for Loan
-                </a>
-                <a href="#associate" className="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">
+                </Link>
+                <Link to="/associate" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
                   Become Associate
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-6 animate-fade-in">

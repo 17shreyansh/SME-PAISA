@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Register.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
   // State for form data, steps, and UI feedback
@@ -620,9 +620,9 @@ const Register = () => {
         </form>
         <p className="text-center mt-4 text-muted">
           Already have an account?{' '}
-          <a href="/login" className="text-orange text-decoration-none">
+          <Link to="/login" className="text-orange text-decoration-none">
             Login here
-          </a>
+          </Link>
         </p>
       </div>
     </div>

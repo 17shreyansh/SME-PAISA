@@ -2,18 +2,7 @@
   border-radius: 4px;
 }
 
-.btn-orange {
-  background-color: #f7931e;
-  color: white;
-}
-.btn-orange:hover {
-  background-color: #d87a16;
-  color: white;
-}
-
-.hover-text-orange:hover {
-  color: #f7931e !important;
-}
+/* Removed orange button and hover classes. Use only black and white. */
 
 .hover-bg-light:hover {
   background-color: #f8f9fa;

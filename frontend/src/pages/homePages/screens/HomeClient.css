@@ -1,0 +1,36 @@
+.header {
+    background: #fff;
+    padding: 16px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .content {
+    padding: 24px;
+  }
+  
+  .welcome {
+    margin-bottom: 16px;
+    color: #666;
+  }
+  
+  .quick-actions {
+    margin-bottom: 24px;
+  }
+  
+  .quick-actions .apply-loan {
+    margin-right: 12px;
+  }
+  
+  h2 {
+    margin-bottom: 16px;
+  }
+  
+  .date {
+    color: #888;
+    margin-left: 8px;
+  }
+  
+  .icon {
+    font-size: 14px;
+  }

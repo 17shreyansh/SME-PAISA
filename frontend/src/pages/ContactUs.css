@@ -14,7 +14,7 @@
   
   /* Custom Backgrounds */
   .bg-gradient-light {
-    background: linear-gradient(135deg, #f8fafc 0%, #e5e7eb 100%);
+    background: #fff;
   }
   
   /* Section Spacing */
@@ -57,10 +57,11 @@
   
   /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #000;
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
   }
   
   /* Hover Underline */
@@ -77,8 +78,8 @@
   }
   
   .form-control:focus, .form-select:focus {
-    border-color: #ff6b35;
-    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+    border-color: #000;
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.15);
     outline: none;
   }
   

@@ -3,7 +3,8 @@
   }
   
   a:hover {
-    color: #f7931e !important; /* Orange color matching the image */
+    color: #fff !important;
+    background-color: #000;
   }
   
   @media (max-width: 767.98px) {

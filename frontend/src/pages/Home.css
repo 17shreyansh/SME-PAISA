@@ -18,7 +18,7 @@ body {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  background: #fff;
 }
 
 /* Section Spacing */
@@ -53,10 +53,11 @@ body {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #ff6b35, #f7931e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #000;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
 }
 
 /* Form Inputs */
@@ -68,8 +69,8 @@ body {
 }
 
 .form-control:focus, .form-select:focus {
-  border-color: #ff6b35;
-  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+  border-color: #000;
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.15);
   outline: none;
 }
 
@@ -136,6 +137,12 @@ body {
   color: #1f2937;
 }
 
+/* Custom black button with 12px border radius for main CTAs */
+.btn-black-custom {
+  background: #000 !important;
+  border-radius: 12px !important;
+}
+
 /* Responsive Typography */
 @media (max-width: 768px) {
   .display-4 {
@@ -154,3 +161,5 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+/* Remove all gradient backgrounds, colored text, and icon backgrounds. Only allow black and white backgrounds and text. Set a global border-radius of 12px for all cards, buttons, and inputs. Remove any custom color classes. Remove author-avatar backgrounds. Remove all unnecessary color rules. Use only Bootstrap spacing utilities for gaps and margins. */

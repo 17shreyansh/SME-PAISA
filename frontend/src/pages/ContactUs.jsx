@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ContactUs.css';
 import { 
@@ -90,7 +91,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-dark">
+    <div className="min-h-screen bg-white text-black">
       {/* Hero Section */}
       <section className="hero-section py-5 py-lg-7 text-center bg-gradient-light">
         <div className="container">
@@ -116,9 +117,9 @@ const ContactUs = () => {
                 </div>
                 <h3 className="h5 fw-bold mb-2">Call Us</h3>
                 <p className="text-muted mb-3">Speak directly with our experts</p>
-                <a href="tel:+919876543210" className="text-dark fw-semibold text-decoration-none hover-underline">
+                <Link to="tel:+919876543210" className="text-dark fw-semibold text-decoration-none hover-underline">
                   +91 98765 43210
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-4">
@@ -128,9 +129,9 @@ const ContactUs = () => {
                 </div>
                 <h3 className="h5 fw-bold mb-2">Email Us</h3>
                 <p className="text-muted mb-3">Get detailed responses</p>
-                <a href="mailto:info@smepaisa.com" className="text-dark fw-semibold text-decoration-none hover-underline">
+                <Link to="mailto:info@smepaisa.com" className="text-dark fw-semibold text-decoration-none hover-underline">
                   info@smepaisa.com
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-md-4">
@@ -171,7 +172,7 @@ const ContactUs = () => {
                 <div className="row g-3">
                   <div className="col-md-6">
                     <div className="position-relative">
-                      <User className="position-absolute start-0 top-50 translate-middle-y ms-3 text-muted" size={20} />
+                      <User className="position-absolute start-0 top-50 translate-middle-y ms-3 text-black" size={20} />
                       <input
                         type="text"
                         name="name"
@@ -185,7 +186,7 @@ const ContactUs = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="position-relative">
-                      <Mail className="position-absolute start-0 top-50 translate-middle-y ms-3 text-muted" size={20} />
+                      <Mail className="position-absolute start-0 top-50 translate-middle-y ms-3 text-black" size={20} />
                       <input
                         type="email"
                         name="email"
@@ -199,7 +200,7 @@ const ContactUs = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="position-relative">
-                      <Phone className="position-absolute start-0 top-50 translate-middle-y ms-3 text-muted" size={20} />
+                      <Phone className="position-absolute start-0 top-50 translate-middle-y ms-3 text-black" size={20} />
                       <input
                         type="tel"
                         name="phone"
@@ -213,7 +214,7 @@ const ContactUs = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="position-relative">
-                      <Building className="position-absolute start-0 top-50 translate-middle-y ms-3 text-muted" size={20} />
+                      <Building className="position-absolute start-0 top-50 translate-middle-y ms-3 text-black" size={20} />
                       <input
                         type="text"
                         name="company"
@@ -239,7 +240,7 @@ const ContactUs = () => {
                   </div>
                   <div className="col-12">
                     <div className="position-relative">
-                      <FileText className="position-absolute start-0 top-0 mt-3 ms-3 text-muted" size={20} />
+                      <FileText className="position-absolute start-0 top-0 mt-3 ms-3 text-black" size={20} />
                       <textarea
                         name="message"
                         value={formData.message}
@@ -255,8 +256,7 @@ const ContactUs = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn btn-dark w-100 py-3 d-flex align-items-center justify-content-center"
-                      onClick={handleSubmit}
+                      className="btn btn-black w-100 py-3 d-flex align-items-center justify-content-center text-white"
                     >
                       {isSubmitting ? (
                         <div className="spinner-border spinner-border-sm text-light me-2" role="status">
@@ -287,24 +287,24 @@ const ContactUs = () => {
                     <h3 className="h5 fw-bold mb-3 text-dark">{office.name}</h3>
                     <div className="d-flex flex-column gap-3">
                       <div className="d-flex align-items-start">
-                        <MapPin className="text-muted me-3 flex-shrink-0 mt-1" size={20} />
-                        <span className="text-muted">{office.address}</span>
+                        <MapPin className="text-black me-3 flex-shrink-0 mt-1" size={20} />
+                        <span className="text-black">{office.address}</span>
                       </div>
                       <div className="d-flex align-items-center">
-                        <Phone className="text-muted me-3 flex-shrink-0" size={20} />
-                        <a href={`tel:${office.phone}`} className="text-dark text-decoration-none hover-underline">
+                        <Phone className="text-black me-3 flex-shrink-0" size={20} />
+                        <Link to={`tel:${office.phone}`} className="text-black text-decoration-none hover-underline">
                           {office.phone}
-                        </a>
+                        </Link>
                       </div>
                       <div className="d-flex align-items-center">
-                        <Mail className="text-muted me-3 flex-shrink-0" size={20} />
-                        <a href={`mailto:${office.email}`} className="text-dark text-decoration-none hover-underline">
+                        <Mail className="text-black me-3 flex-shrink-0" size={20} />
+                        <Link to={`mailto:${office.email}`} className="text-black text-decoration-none hover-underline">
                           {office.email}
-                        </a>
+                        </Link>
                       </div>
                       <div className="d-flex align-items-center">
-                        <Clock className="text-muted me-3 flex-shrink-0" size={20} />
-                        <span className="text-muted">{office.hours}</span>
+                        <Clock className="text-black me-3 flex-shrink-0" size={20} />
+                        <span className="text-black">{office.hours}</span>
                       </div>
                     </div>
                     <button className="btn btn-outline-dark w-100 mt-4">
@@ -339,10 +339,10 @@ const ContactUs = () => {
             ].map((faq, index) => (
               <div key={index} className="card border-0 shadow-sm rounded-3 p-4 animate-fade-in">
                 <div className="d-flex align-items-start">
-                  <AlertCircle className="text-muted me-3 flex-shrink-0 mt-1" size={20} />
+                  <AlertCircle className="text-black me-3 flex-shrink-0 mt-1" size={20} />
                   <div>
                     <h3 className="fw-semibold text-dark mb-2">{faq.question}</h3>
-                    <p className="text-muted">{faq.answer}</p>
+                    <p className="text-black">{faq.answer}</p>
                   </div>
                 </div>
               </div>

@@ -1,0 +1,172 @@
+/* Sidebar.css - Custom styles for Sidebar component */
+
+/* Sidebar main container custom styles */
+.sidebar-custom {
+  background-color: #fff;
+  border-right: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 0;
+  z-index: 1000;
+}
+
+/* Sidebar logo and toggle row */
+.sidebar-logo-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-bottom: 1.5px solid #000;
+  background: #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Collapsed logo row */
+.sidebar-logo-collapsed {
+  justify-content: center;
+}
+
+/* Sidebar logo text - updated for simplicity and single line fit */
+.sidebar-logo-text {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-left: 6px;
+  margin-right: 6px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-logo-text-collapsed {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Toggle icon next to logo */
+.sidebar-logo-toggle-icon {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-left: auto;
+}
+
+/* Sidebar toggle button (hidden if not used) */
+.sidebar-toggle-btn {
+  display: none !important;
+}
+
+/* Collapsed sidebar: hide label text even on hover */
+.sidebar-collapsed .ant-menu-item > a {
+  width: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+.sidebar-collapsed .ant-menu-item {
+  justify-content: center !important;
+}
+
+/* Main menu section */
+.sidebar-main-menu {
+  flex: 1;
+  padding-top: 8px;
+}
+.sidebar-menu {
+  background-color: transparent !important;
+  border: none !important;
+}
+.sidebar-menu-item {
+  margin: 4px 12px;
+  border-radius: 1px !important;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #fff !important;
+  color: #000 !important;
+  font-weight: 400;
+  transition: background 0.1s, color 0.1s !important;
+}
+.sidebar-menu-item.selected {
+  background-color: #000 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+.sidebar-link {
+  color: inherit !important;
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+/* Bottom menu section */
+.sidebar-bottom-menu {
+  background: #fff;
+  border-top: 1px solid #e9ecef;
+  padding: 12px;
+}
+.sidebar-menu-item.sidebar-logout {
+  color: #dc3545 !important;
+  background: #fff !important;
+  margin: 4px 0;
+  border-radius: 12px !important;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+/* Prevent sidebar link text from moving on hover */
+.ant-menu-item > a,
+.ant-menu-item > .ant-menu-title-content {
+  transition: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.ant-menu-item {
+  transition: none !important;
+}
+
+/* Remove any margin or padding on hover */
+.ant-menu-item:hover,
+.ant-menu-item-active,
+.ant-menu-item-selected {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  transition: none !important;
+}
+
+/* Remove any background except black/white */
+.sidebar-menu-item,
+.sidebar-menu-item.selected,
+.sidebar-menu-item.sidebar-logout {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-radius: 12px !important;
+}
+.sidebar-menu-item.selected {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar-logo-text {
+    font-size: 1.2rem;
+  }
+  .sidebar-logo-toggle {
+    padding: 12px;
+  }
+  .sidebar-main-menu {
+    padding-top: 4px;
+  }
+}

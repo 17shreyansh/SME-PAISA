@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './About.css';
 import { Target, Heart, Shield, TrendingUp, Users } from 'lucide-react';
@@ -66,10 +67,10 @@ const AboutUs = () => {
             <div className="col-lg-6">
               <div className="card h-100 border-0 shadow-sm rounded-3 p-4 animate-in">
                 <div className="icon-circle bg-light rounded-circle d-flex align-items-center justify-content-center mb-4">
-                  <Target className="text-dark" size={32} />
+                  <Target className="text-black" size={32} />
                 </div>
                 <h3 className="h4 fw-bold mb-3 text-dark">Our Vision</h3>
-                <p className="text-muted">
+                <p className="text-black">
                   To become India's most trusted and preferred financial partner for MSMEs, enabling every business to achieve its full potential through accessible and innovative financing solutions.
                 </p>
               </div>
@@ -77,10 +78,10 @@ const AboutUs = () => {
             <div className="col-lg-6">
               <div className="card h-100 border-0 shadow-sm rounded-3 p-4 animate-in">
                 <div className="icon-circle bg-light rounded-circle d-flex align-items-center justify-content-center mb-4">
-                  <Heart className="text-dark" size={32} />
+                  <Heart className="text-black" size={32} />
                 </div>
                 <h3 className="h4 fw-bold mb-3 text-dark">Our Mission</h3>
-                <p className="text-muted">
+                <p className="text-black">
                   To democratize access to capital for MSMEs by leveraging technology, building strong partnerships, and delivering exceptional customer experiences that drive business growth and economic prosperity.
                 </p>
               </div>
@@ -107,10 +108,10 @@ const AboutUs = () => {
               <div className="col-md-4 text-center animate-in" key={index}>
                 <div className="value-card group">
                   <div className="icon-circle bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4 group-hover:bg-dark group-hover:text-white">
-                    <value.icon size={40} />
+                    <value.icon size={40} className="text-black" />
                   </div>
                   <h3 className="h5 fw-bold mb-3 text-dark">{value.title}</h3>
-                  <p className="text-muted">{value.desc}</p>
+                  <p className="text-black">{value.desc}</p>
                 </div>
               </div>
             ))}
@@ -154,12 +155,13 @@ const AboutUs = () => {
             Join thousands of businesses that have chosen SME PAISA as their trusted financial partner.
           </p>
           <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-            <button className="btn btn-light btn-lg px-5 py-3 fw-semibold animate-in">
+            {/* CTA Buttons - Use Bootstrap and custom class for black button */}
+            <Link to="/apply" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
               Apply for Funding
-            </button>
-            <button className="btn btn-outline-light btn-lg px-5 py-3 fw-semibold animate-in">
+            </Link>
+            <Link to="/knowledge" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </section>
