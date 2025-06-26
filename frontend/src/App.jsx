@@ -9,12 +9,13 @@ import Index from './pages/Home.jsx';
 import AboutUs from './pages/About.jsx';
 import ContactUs from './pages/ContactUs.jsx';
 import KnowledgeHub from './pages/KnowledgeHub.jsx';
-import CoordinatorDashboard from './pages/homePages/screens/CoordinatorDashboard.jsx';
+import CoordinatorDashboard from './pages/homePages/CoordinatorDashboard.jsx';
 import KYCUpload from './pages/auth/KYCUpload.jsx';
 import VerifyEmail from './pages/auth/VerifyEmail.jsx';
 import TriggerEmailVerification from './pages/auth/TriggerEmailVerification.jsx';
 import Login from './pages/auth/Login.jsx';
-import ComingSoon from './pages/ComingSoon.jsx'; // Verified path
+import ComingSoon from './pages/ComingSoon.jsx'; 
+import Cases from './pages/Cases.jsx';
 
 const { Content } = Layout;
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/knowledge" element={<KnowledgeHub />} />
             <Route path="/dashboard" element={<CoordinatorDashboard />} />
+            <Route path="/cases" element={<Cases />} />
             <Route path="*" element={<ComingSoon />} /> {/* Catch-all route */}
           </Routes>
         </Content>

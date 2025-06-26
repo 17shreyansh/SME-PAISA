@@ -1,12 +1,12 @@
 import React from 'react';
 import { Layout, Card, Typography } from 'antd';
-import Header from '../components/HeaderCoordinator.jsx';
-import TasksTable from '../components/TasksTable.jsx';
-import ClientInteractions from '../components/ClientInteractions.jsx';
-import DocumentPendency from '../components/DocumentPendency.jsx';
-import CaseProgressNotes from '../components/CaseProgressNotes.jsx';
+import Header from '../../components/HeaderCoordinator.jsx';
+import TasksTable from '../../components/TasksTable.jsx';
+import ClientInteractions from '../../components/ClientInteractions.jsx';
+import DocumentPendency from '../../components/DocumentPendency.jsx';
+import CaseProgressNotes from '../../components/CaseProgressNotes.jsx';
 import { mockData } from './MookDataCoordinator.js'; // Import mock data
-import '../../../App.css';
+import '../../App.css';
 import './CoordinatorDashboard.css';
 
 const { Content } = Layout;

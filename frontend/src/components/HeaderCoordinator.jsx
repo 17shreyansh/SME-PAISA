@@ -7,7 +7,7 @@ const Header = ({ title = 'Coordinator Dashboard', user = 'User' }) => {
   return (
     <div className="dashboard-header">
       <Title className="dashboard-title">{title}</Title>
-      <Text className="welcome-text">Welcome back, {user}</Text>
+      {/* <Text className="welcome-text">Welcome back, {user}</Text> */}
     </div>
   );
 };
