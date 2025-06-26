@@ -1,74 +1,45 @@
 import React from 'react';
-import { Layout, Button, Table, Timeline } from 'antd';
-import 'antd/dist/reset.css';
-import './HomeClient.css';
+import { Layout, Row, Col } from 'antd';
+import Header from '../components/pageHeader.jsx';
+import MetricCard from '../components/MetricCard.jsx';
+import DataTable from '../components/dataTableD1.jsx';
+import '../../../App.css';
 
-const { Header, Content } = Layout;
-
-const Welcome = ({ name }) => (
-  <div className="welcome">Welcome back, {name}</div>
-);
-
-const QuickActions = ({ actions }) => (
-  <div className="quick-actions">
-    {actions.map((action, index) => (
-      <Button key={index} type={action.type} className={action.className}>
-        {action.label}
-      </Button>
-    ))}
-  </div>
-);
-
-const ApplicationOverview = ({ applications }) => {
-  const columns = [
-    { title: 'Application ID', dataIndex: 'id', key: 'id' },
-    { title: 'Loan Type', dataIndex: 'loanType', key: 'loanType' },
-    { title: 'Amount', dataIndex: 'amount', key: 'amount' },
-    { title: 'Status', dataIndex: 'status', key: 'status' },
-    { title: 'Last Updated', dataIndex: 'lastUpdated', key: 'lastUpdated' },
-  ];
-  return <Table columns={columns} dataSource={applications} pagination={false} />;
-};
-
-const RecentActivity = ({ activities }) => (
-  <Timeline>
-    {activities.map((activity, index) => (
-      <Timeline.Item key={index} dot={activity.icon}>
-        {activity.description} <span className="date">{activity.date}</span>
-      </Timeline.Item>
-    ))}
-  </Timeline>
-);
+const { Content } = Layout;
 
 const Dashboard = () => {
-  const mockData = {
-    name: 'Alex',
-    quickActions: [
-      { label: 'Apply for Loan', type: 'primary', className: 'apply-loan' },
-      { label: 'Upload Documents', type: 'default', className: 'upload-docs' },
-    ],
-    applications: [
-      { key: '1', id: 'APP12345', loanType: 'Working Capital Loan', amount: '$50,000', status: 'In Review', lastUpdated: '2024-07-26' },
-      { key: '2', id: 'APP67890', loanType: 'Equipment Financing', amount: '$20,000', status: 'Approved', lastUpdated: '2024-07-20' },
-      { key: '3', id: 'APP11223', loanType: 'Business Expansion Loan', amount: '$100,000', status: 'Pending Documents', lastUpdated: '2024-07-15' },
-    ],
-    activities: [
-      { icon: <span className="icon">📄</span>, description: 'Loan Application Submitted', date: '2024-07-25' },
-      { icon: <span className="icon">📎</span>, description: 'Documents Uploaded', date: '2024-07-26' },
-      { icon: <span className="icon">⏳</span>, description: 'Application In Review', date: '2024-07-27' },
-    ],
-  };
+  const metrics = [
+    { title: 'Total Loans', value: '1,234', icon: '💰' },
+    { title: 'Active Users', value: '567', icon: '👥' },
+    { title: 'Pending Applications', value: '89', icon: '📝' },
+  ];
+
+  const tableData = [
+    { id: 1, loanId: 'LN001', applicant: 'John Doe', amount: 5000, status: 'Approved' },
+    { id: 2, loanId: 'LN002', applicant: 'Jane Smith', amount: 7500, status: 'Pending' },
+    { id: 3, loanId: 'LN003', applicant: 'Bob Johnson', amount: 3000, status: 'Rejected' },
+  ];
 
   return (
-    <Layout>
-      <Header className="header">Dashboard</Header>
-      <Content className="content">
-        <Welcome name={mockData.name} />
-        <QuickActions actions={mockData.quickActions} />
-        <h2>Application Overview</h2>
-        <ApplicationOverview applications={mockData.applications} />
-        <h2>Recent Activity</h2>
-        <RecentActivity activities={mockData.activities} />
+    <Layout style={{ minHeight: '100vh' }}>
+      <Content style={{ margin: '0 16px', padding: 24, background: '#fff' }}>
+        <Header title="Dashboard" user="Ankit Poonia" />
+        <Row gutter={[16, 16]} style={{ marginTop: 16 }}>
+          {metrics.length > 0 ? (
+            metrics.map((metric, index) => (
+              <Col span={8} key={index}>
+                <MetricCard title={metric.title} value={metric.value} icon={metric.icon} />
+              </Col>
+            ))
+          ) : (
+            <Col span={24}>
+              <p>No metrics available</p>
+            </Col>
+          )}
+        </Row>
+        <div style={{ marginTop: 24 }}>
+          <DataTable data={tableData} />
+        </div>
       </Content>
     </Layout>
   );

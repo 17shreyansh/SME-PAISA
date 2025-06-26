@@ -2,10 +2,6 @@
     font-size: 1.2rem;
   }
   
-  a:hover {
-    color: #fff !important;
-    background-color: #000;
-  }
   
   @media (max-width: 767.98px) {
     .col-md-3 {

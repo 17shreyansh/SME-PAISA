@@ -1,172 +1,115 @@
-/* Sidebar.css - Custom styles for Sidebar component */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-/* Sidebar main container custom styles */
 .sidebar-custom {
-  background-color: #fff;
-  border-right: 1px solid #2a2a2a;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   position: fixed;
-  left: 0;
   top: 0;
-  min-width: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: width 0.3s ease;
   z-index: 1000;
+  border-right: 1px solid lightgray;
 }
 
-/* Sidebar logo and toggle row */
+.sidebar-custom.collapsed {
+  width: 80px;
+}
+
 .sidebar-logo-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px;
-  border-bottom: 1.5px solid #000;
-  background: #000;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Collapsed logo row */
-.sidebar-logo-collapsed {
-  justify-content: center;
-}
-
-/* Sidebar logo text - updated for simplicity and single line fit */
-.sidebar-logo-text {
-  font-weight: 600;
-  font-size: 1.4rem;
-  color: #fff;
-  margin-left: 6px;
-  margin-right: 6px;
-  white-space: nowrap;
-  letter-spacing: 0.5px;
-}
-
-.sidebar-logo-text-collapsed {
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-}
-
-/* Toggle icon next to logo */
-.sidebar-logo-toggle-icon {
-  font-size: 1.2rem;
-  color: #fff;
-  margin-left: auto;
-}
-
-/* Sidebar toggle button (hidden if not used) */
-.sidebar-toggle-btn {
-  display: none !important;
-}
-
-/* Collapsed sidebar: hide label text even on hover */
-.sidebar-collapsed .ant-menu-item > a {
-  width: 0 !important;
-  min-width: 0 !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  opacity: 0 !important;
-  transition: none !important;
-}
-.sidebar-collapsed .ant-menu-item {
-  justify-content: center !important;
-}
-
-/* Main menu section */
-.sidebar-main-menu {
-  flex: 1;
-  padding-top: 8px;
-}
-.sidebar-menu {
-  background-color: transparent !important;
-  border: none !important;
-}
-.sidebar-menu-item {
-  margin: 4px 12px;
-  border-radius: 1px !important;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  background-color: #fff !important;
-  color: #000 !important;
-  font-weight: 400;
-  transition: background 0.1s, color 0.1s !important;
-}
-.sidebar-menu-item.selected {
-  background-color: #000 !important;
-  color: #fff !important;
-  font-weight: 600;
-}
-.sidebar-link {
-  color: inherit !important;
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  text-decoration: none;
-}
-
-/* Bottom menu section */
-.sidebar-bottom-menu {
+  padding: 16px;
   background: #fff;
-  border-top: 1px solid #e9ecef;
-  padding: 12px;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
 }
-.sidebar-menu-item.sidebar-logout {
-  color: #dc3545 !important;
-  background: #fff !important;
-  margin: 4px 0;
-  border-radius: 12px !important;
-  height: 40px;
+
+.sidebar-logo-text {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sidebar-logo-text.collapsed {
+  font-size: 1.6rem;
+  overflow: hidden;
+  width: 30px;
+  text-align: center;
+}
+
+.sidebar-toggle-icon {
+  font-size: 1.6rem;
+  color: #000;
+}
+
+.sidebar-menu,
+.sidebar-bottom-menu {
+  margin-top: 20px;
+}
+
+.menu-item {
+  margin: 8px 0;
+}
+
+.menu-link {
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #000;
+  text-decoration: none;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-/* Prevent sidebar link text from moving on hover */
-.ant-menu-item > a,
-.ant-menu-item > .ant-menu-title-content {
-  transition: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
+.menu-link:hover {
+  color: #000;
 }
 
-.ant-menu-item {
-  transition: none !important;
+.menu-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
 }
 
-/* Remove any margin or padding on hover */
-.ant-menu-item:hover,
-.ant-menu-item-active,
-.ant-menu-item-selected {
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  transition: none !important;
+.menu-label {
+  font-size: 1rem;
 }
 
-/* Remove any background except black/white */
-.sidebar-menu-item,
-.sidebar-menu-item.selected,
-.sidebar-menu-item.sidebar-logout {
-  background-color: #fff !important;
-  color: #000 !important;
-  border-radius: 12px !important;
-}
-.sidebar-menu-item.selected {
-  background-color: #000 !important;
-  color: #fff !important;
+.active .menu-link {
+  background: #000;
+  color: #fff;
 }
 
-/* Responsive adjustments */
+.logout-item .menu-link {
+  background: transparent;
+  color: #000;
+}
+
+.logout-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+}
+
 @media (max-width: 768px) {
+  .sidebar-custom {
+    transform: translateX(-100%);
+  }
+  .sidebar-custom.collapsed {
+    transform: translateX(0);
+  }
   .sidebar-logo-text {
-    font-size: 1.2rem;
-  }
-  .sidebar-logo-toggle {
-    padding: 12px;
-  }
-  .sidebar-main-menu {
-    padding-top: 4px;
+    font-size: 1.8rem;
   }
 }
