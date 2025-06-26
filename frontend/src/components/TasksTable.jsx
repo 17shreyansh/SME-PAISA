@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Typography, Button } from 'antd';
-import StatusBadge from './StatusBadge.jsx'; // Import StatusBadge
+import StatusBadge from './StatusBadge.jsx';
+import './TasksTable.css';
 
 const { Text } = Typography;
 
@@ -16,24 +17,28 @@ const TasksTable = ({ data = [] }) => {
       title: 'Client Name',
       dataIndex: 'clientName',
       key: 'clientName',
-      render: (text) => <Text style={{ color: '#8c8c8c' }}>{text}</Text>,
+      render: (text) => <Text className="dimmed">{text}</Text>,
     },
     {
       title: 'Status',
       dataIndex: 'status',
       key: 'status',
-      render: (status) => <StatusBadge status={status} />, // Now defined
+      render: (status) => <StatusBadge status={status} />,
     },
     {
       title: 'Last Updated',
       dataIndex: 'lastUpdated',
       key: 'lastUpdated',
-      render: (text) => <Text style={{ color: '#8c8c8c' }}>{text}</Text>,
+      render: (text) => <Text className="dimmed">{text}</Text>,
     },
     {
       title: 'Action',
       key: 'action',
-      render: () => <Button type="link" className="view-button">View</Button>,
+      render: () => (
+        <Button type="link" className="view-button">
+          View
+        </Button>
+      ),
     },
   ];
 

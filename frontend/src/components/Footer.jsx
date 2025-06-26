@@ -5,62 +5,61 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-start py-4 w-100 footer-bottom">
-      <div className="container-fluid">
+    <footer className="footer-section bg-white text-dark pt-5 border-top">
+      <div className="container">
         <div className="row">
+
           {/* Company Info */}
-          <div className="col-12 col-md-3 mb-4 mb-md-0">
-            <h3 className="text-warning mb-3">SME PAISA</h3>
-            <p className="text-white text-start">
-              Empowering MSMEs with fast, secure, and affordable financing solutions. Your trusted partner for business growth.
+          <div className="col-12 col-md-3 mb-4">
+            <h5 className="text-primary fw-semibold mb-3">SME PAISA</h5>
+            <p className="small text-muted">
+              Empowering MSMEs with fast, secure, and affordable financing solutions.
             </p>
-            <div className="d-flex gap-2">
-              <Link to="#" className="text-white"><i className="bi bi-facebook"></i></Link>
-              <Link to="#" className="text-white"><i className="bi bi-twitter"></i></Link>
-              <Link to="#" className="text-white"><i className="bi bi-linkedin"></i></Link>
-              <Link to="#" className="text-white"><i className="bi bi-instagram"></i></Link>
+            <div className="d-flex gap-3">
+              <Link to="#"><i className="bi bi-facebook fs-5 text-muted"></i></Link>
+              <Link to="#"><i className="bi bi-twitter fs-5 text-muted"></i></Link>
+              <Link to="#"><i className="bi bi-linkedin fs-5 text-muted"></i></Link>
+              <Link to="#"><i className="bi bi-instagram fs-5 text-muted"></i></Link>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="col-12 col-md-3 mb-4 mb-md-0">
-            <h4 className="text-white mb-3">Quick Links</h4>
-            <ul className="list-unstyled">
+          <div className="col-12 col-md-3 mb-4">
+            <h6 className="text-dark fw-semibold mb-3">Quick Links</h6>
+            <ul className="list-unstyled small">
               {['About Us', 'Loan Products', 'Apply Now', 'Partner with Us', 'Knowledge Hub', 'Contact Us'].map((link) => (
-                <li key={link}><Link to="#" className="text-white text-decoration-none text-start">{link}</Link></li>
+                <li key={link}><Link to="#" className="text-muted text-decoration-none">{link}</Link></li>
               ))}
             </ul>
           </div>
 
           {/* Loan Products */}
-          <div className="col-12 col-md-3 mb-4 mb-md-0">
-            <h4 className="text-white mb-3">Loan Products</h4>
-            <ul className="list-unstyled">
+          <div className="col-12 col-md-3 mb-4">
+            <h6 className="text-dark fw-semibold mb-3">Loan Products</h6>
+            <ul className="list-unstyled small">
               {['Working Capital', 'Vyapar+ Loans', 'CGTMSE Loans', 'Term Loans', 'Corporate Finance', 'Equipment Finance'].map((product) => (
-                <li key={product}><Link to="#" className="text-white text-decoration-none text-start">{product}</Link></li>
+                <li key={product}><Link to="#" className="text-muted text-decoration-none">{product}</Link></li>
               ))}
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="col-12 col-md-3">
-            <h4 className="text-white mb-3">Contact Info</h4>
-            <div>
-              <p className="mb-1"><i className="bi bi-telephone-fill text-warning me-2"></i><a href="tel:+919876543210" className="text-white text-decoration-none text-start">+91 98765 43210</a><br /><small className="text-white">Mon-Sat, 9AM-7PM</small></p>
-              <p className="mb-1"><i className="bi bi-envelope-fill text-warning me-2"></i><a href="mailto:info@smepaisa.com" className="text-white text-decoration-none text-start">info@smepaisa.com</a><br /><small className="text-white">24/7 Support</small></p>
-              <p><i className="bi bi-geo-alt-fill text-warning me-2"></i><span className="text-white text-start">123 Business Tower,<br />Mumbai, Maharashtra 400001</span></p>
-            </div>
+          <div className="col-12 col-md-3 mb-4">
+            <h6 className="text-dark fw-semibold mb-3">Contact Info</h6>
+            <p className="small mb-2"><i className="bi bi-telephone-fill text-primary me-2"></i>+91 98765 43210</p>
+            <p className="small mb-2"><i className="bi bi-envelope-fill text-primary me-2"></i>info@smepaisa.com</p>
+            <p className="small"><i className="bi bi-geo-alt-fill text-primary me-2"></i>123 Business Tower, Mumbai, MH</p>
           </div>
         </div>
 
-        <hr className="bg-light my-4" />
+        <hr />
 
-        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
-          <p className="text-white mb-0 text-start">© 2024 SME PAISA. All rights reserved.</p>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+          <p className="text-muted mb-2 mb-md-0 small">© 2024 SME PAISA. All rights reserved.</p>
           <div className="d-flex gap-3">
-            <Link to="#" className="text-white text-decoration-none text-start">Privacy Policy</Link>
-            <Link to="#" className="text-white text-decoration-none text-start">Terms of Service</Link>
-            <Link to="#" className="text-white text-decoration-none text-start">Cookie Policy</Link>
+            <Link to="#" className="text-muted small text-decoration-none">Privacy Policy</Link>
+            <Link to="#" className="text-muted small text-decoration-none">Terms of Service</Link>
+            <Link to="#" className="text-muted small text-decoration-none">Cookie Policy</Link>
           </div>
         </div>
       </div>

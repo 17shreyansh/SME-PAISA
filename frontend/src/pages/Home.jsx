@@ -6,95 +6,69 @@ import { Clock, ShieldCheck, Users, TrendingUp, Shield, CreditCard, Check, Arrow
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="home-wrapper bg-white text-black">
       {/* Hero Section */}
-      <section className="hero-section py-5 py-lg-7 bg-gradient-dark text-white position-relative">
+      <section className="hero-section py-5">
         <div className="container">
           <div className="row align-items-center g-5">
-            <div className="col-md-6 animate-fade-in">
-              <h1 className="display-4 fw-bold mb-4">
-                Ready to Grow Your <span className="gradient-text">Business?</span>
-              </h1>
-              <p className="lead text-light mb-4">
-                Get instant access to working capital, term loans, and business financing solutions. Join 10,000+ MSMEs who trust SME PAISA for their growth journey.
+            <div className="col-md-6">
+              <h1 className="display-4 fw-bold mb-4">Ready to Grow Your <span>Business?</span></h1>
+              <p className="lead mb-4">
+                Get instant access to working capital, term loans, and business financing. Join 10,000+ MSMEs who trust SME PAISA.
               </p>
-              <div className="d-flex flex-column gap-3 mb-5">
-                <div className="d-flex align-items-center gap-2">
-                  <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <Clock size={20} className="text-black" />
+              <div className="mb-4">
+                {[
+                  { icon: Clock, text: "Quick Response - Get callback within 2 hours" },
+                  { icon: ShieldCheck, text: "No Spam Promise - We respect your privacy" },
+                  { icon: Users, text: "Expert Guidance - Dedicated relationship manager" }
+                ].map((item, i) => (
+                  <div className="d-flex align-items-center gap-2 mb-2" key={i}>
+                    <item.icon size={20} />
+                    <span>{item.text}</span>
                   </div>
-                  <span>Quick Response - Get callback within 2 hours</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <ShieldCheck size={20} className="text-black" />
-                  </div>
-                  <span>No Spam Promise - We respect your privacy</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <div className="icon-circle bg-white bg-opacity-25 rounded-circle p-2">
-                    <Users size={20} className="text-black" />
-                  </div>
-                  <span>Expert Guidance - Dedicated relationship manager</span>
-                </div>
+                ))}
               </div>
               <div className="d-flex flex-column flex-sm-row gap-3">
-                {/* Main CTA Buttons - Use Bootstrap and custom class for black button */}
-                <Link to="/apply" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
-                  Apply for Loan
-                </Link>
-                <Link to="/associate" className="btn btn-black btn-lg px-5 py-3 fw-semibold text-white btn-black-custom">
-                  Become Associate
-                </Link>
+                <Link to="/apply" className="btn btn-dark-custom px-4 py-2 fw-semibold text-white">Apply for Loan</Link>
+                <Link to="/associate" className="btn btn-dark-custom px-4 py-2 fw-semibold text-white">Become Associate</Link>
               </div>
             </div>
-            <div className="col-md-6 animate-fade-in">
-              <div className="card border-0 shadow-sm rounded-3 p-4 p-lg-5 bg-white bg-opacity-95 glassmorphism">
-                <h3 className="h4 fw-bold mb-4 text-dark text-center">Get Your Free Quote</h3>
-                <div id="quoteForm">
+            <div className="col-md-6">
+              <div className="p-4 shadow-sm rounded form-box bg-white">
+                <h3 className="h5 fw-bold mb-3 text-center">Get Your Free Quote</h3>
+                <form>
                   <div className="row g-3">
+                    <div className="col-md-6"><input type="text" className="form-control" placeholder="Full Name *" /></div>
+                    <div className="col-md-6"><input type="tel" className="form-control" placeholder="Phone Number *" /></div>
+                    <div className="col-12"><input type="email" className="form-control" placeholder="Email Address *" /></div>
+                    <div className="col-12"><input type="text" className="form-control" placeholder="Business Name *" /></div>
                     <div className="col-md-6">
-                      <input type="text" className="form-control" placeholder="Full Name *" required />
-                    </div>
-                    <div className="col-md-6">
-                      <input type="tel" className="form-control" placeholder="Phone Number *" required />
-                    </div>
-                    <div className="col-12">
-                      <input type="email" className="form-control" placeholder="Email Address *" required />
-                    </div>
-                    <div className="col-12">
-                      <input type="text" className="form-control" placeholder="Business Name *" required />
-                    </div>
-                    <div className="col-md-6">
-                      <select className="form-select" required>
+                      <select className="form-select">
                         <option value="">Select Loan Type *</option>
-                        <option value="working-capital">Working Capital</option>
-                        <option value="cgtmse">CGTMSE Loans</option>
-                        <option value="vyapar">Vyapar+ Takeover</option>
-                        <option value="term-loan">Term Loans</option>
+                        <option>Working Capital</option>
+                        <option>CGTMSE Loans</option>
+                        <option>Vyapar+ Takeover</option>
+                        <option>Term Loans</option>
                       </select>
                     </div>
                     <div className="col-md-6">
-                      <select className="form-select" required>
-                        <option value="">Loan Amount Required *</option>
-                        <option value="5-10">₹5L - ₹10L</option>
-                        <option value="10-25">₹10L - ₹25L</option>
-                        <option value="25-50">₹25L - ₹50L</option>
-                        <option value="50-100">₹50L - ₹1Cr</option>
-                        <option value="100+">₹1Cr+</option>
+                      <select className="form-select">
+                        <option value="">Loan Amount *</option>
+                        <option>₹5L - ₹10L</option>
+                        <option>₹10L - ₹25L</option>
+                        <option>₹25L - ₹50L</option>
+                        <option>₹50L - ₹1Cr</option>
+                        <option>₹1Cr+</option>
                       </select>
                     </div>
                     <div className="col-12">
-                      <button type="submit" className="btn btn-dark w-100 py-3 d-flex align-items-center justify-content-center">
-                        Get Free Quote
-                        <ArrowRight size={16} className="ms-2" />
+                      <button type="submit" className="btn btn-dark-custom w-100 d-flex justify-content-center align-items-center">
+                        Get Free Quote <ArrowRight size={16} className="ms-2" />
                       </button>
                     </div>
                   </div>
-                  <p className="text-muted small text-center mt-3">
-                    By submitting this form, you agree to our Terms & Conditions and Privacy Policy
-                  </p>
-                </div>
+                  <p className="small text-center mt-3 text-muted">By submitting, you agree to our Terms and Privacy Policy</p>
+                </form>
               </div>
             </div>
           </div>
@@ -102,79 +76,26 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="services-section py-5 py-lg-6 bg-light">
+      <section className="py-5 bg-light">
         <div className="container">
-          <div className="text-center mb-5 animate-fade-in">
-            <h2 className="h3 fw-bold mb-3 text-dark">
-              Our <span className="gradient-text">Services</span> Snapshot
-            </h2>
-            <p className="lead text-muted">
-              Comprehensive financial solutions tailored for MSMEs at every growth stage
-            </p>
+          <div className="text-center mb-4">
+            <h2 className="h4 fw-bold mb-2">Our Services</h2>
+            <p className="text-muted">Financial solutions tailored for MSMEs</p>
           </div>
           <div className="row g-4">
-            {[
-              {
-                icon: TrendingUp,
-                title: 'Working Capital Loans',
-                desc: 'OD, CC, Invoice Discounting, Bill Discounting',
-                details: [
-                  { label: 'Loan Amount', value: '₹10L - ₹2Cr', class: 'text-primary' },
-                  { label: 'Interest Rate', value: '12% onwards', class: 'text-success' },
-                  { label: 'Tenure', value: '12-36 months' },
-                  { label: 'Processing Time', value: '24-48 hours', class: 'text-success' },
-                ],
-                features: ['Quick approval', 'Minimal documentation', 'Flexible repayment', 'No prepayment charges'],
-              },
-              {
-                icon: Shield,
-                title: 'CGTMSE Loans',
-                desc: 'Government-backed collateral-free loans for MSMEs',
-                details: [
-                  { label: 'Loan Amount', value: 'Up to ₹2Cr', class: 'text-primary' },
-                  { label: 'Interest Rate', value: '10% onwards', class: 'text-success' },
-                  { label: 'Tenure', value: '36-84 months' },
-                  { label: 'Processing Time', value: '7-10 days', class: 'text-success' },
-                ],
-                features: ['Government backed', 'No collateral', 'Lower interest rates', 'Higher approval rates'],
-              },
-              {
-                icon: CreditCard,
-                title: 'Vyapar+ (Loan Takeover)',
-                desc: 'Better Rates & Enhanced Limits',
-                details: [
-                  { label: 'Loan Amount', value: '₹5L - ₹50L', class: 'text-primary' },
-                  { label: 'Interest Rate', value: '14% onwards', class: 'text-success' },
-                  { label: 'Tenure', value: '6-24 months' },
-                  { label: 'Processing Time', value: 'Same day', class: 'text-success' },
-                ],
-                features: ['Better rates', 'Enhanced limits', 'Same day approval', 'Digital process'],
-              },
-            ].map((service, index) => (
-              <div className="col-lg-4 col-md-6 animate-fade-in" key={index}>
-                <div className="card h-100 border-0 shadow-sm rounded-3 p-4 service-card">
-                  <div className="icon-circle bg-gradient-primary rounded-circle d-flex align-items-center justify-content-center mb-4">
-                    <service.icon size={24} className="text-white" />
-                  </div>
-                  <h3 className="h5 fw-bold mb-3 text-dark">{service.title}</h3>
-                  <p className="text-muted mb-4">{service.desc}</p>
-                  <div className="row g-2 mb-4">
-                    {service.details.map((detail, i) => (
-                      <div className="col-6" key={i}>
-                        <span className="small text-muted d-block">{detail.label}</span>
-                        <span className={`small fw-semibold ${detail.class || ''}`}>{detail.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <ul className="list-unstyled d-flex flex-column gap-2 mb-4">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="d-flex align-items-center gap-2">
-                        <Check size={16} className="text-success" />
-                        <span className="small text-muted">{feature}</span>
-                      </li>
-                    ))}
+            {[TrendingUp, Shield, CreditCard].map((Icon, idx) => (
+              <div className="col-md-4" key={idx}>
+                <div className="card border-0 p-4 rounded h-100 service-box">
+                  <Icon size={24} className="mb-3" />
+                  <h5 className="fw-bold">Service {idx + 1}</h5>
+                  <p className="text-muted">Description of the loan service goes here briefly.</p>
+                  <ul className="list-unstyled mt-3">
+                    <li className="d-flex align-items-center gap-2">
+                      <Check size={16} />
+                      <span className="small text-muted">Feature example</span>
+                    </li>
                   </ul>
-                  <button className="btn btn-dark w-100 py-2">Apply Now</button>
+                  <button className="btn btn-dark-custom w-100 mt-3">Apply Now</button>
                 </div>
               </div>
             ))}
@@ -183,18 +104,13 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="stats-section py-5 py-lg-6 bg-gradient-dark text-white">
+      <section className="py-5 bg-dark text-white">
         <div className="container">
-          <div className="row text-center g-4">
-            {[
-              { value: '₹500Cr+', label: 'Disbursed' },
-              { value: '10,000+', label: 'Happy Clients' },
-              { value: '50+', label: 'Bank Partners' },
-              { value: '24Hrs', label: 'Quick Approval' },
-            ].map((stat, index) => (
-              <div className="col-md-3 animate-fade-in" key={index}>
-                <h3 className="h2 fw-bold mb-2 gradient-text">{stat.value}</h3>
-                <p className="text-light">{stat.label}</p>
+          <div className="row text-center">
+            {['₹500Cr+', '10,000+', '50+', '24Hrs'].map((value, idx) => (
+              <div className="col-6 col-md-3 mb-4" key={idx}>
+                <h3 className="fw-bold">{value}</h3>
+                <p className="small text-white">Stat {idx + 1}</p>
               </div>
             ))}
           </div>
@@ -202,53 +118,23 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials-section py-5 py-lg-6">
+      <section className="py-5 bg-light">
         <div className="container">
-          <div className="text-center mb-5 animate-fade-in">
-            <h2 className="h3 fw-bold mb-3 text-dark">
-              What Our <span className="gradient-text">Clients Say</span>
-            </h2>
-            <p className="lead text-muted">
-              Don't just take our word for it. Here's what businesses and associates say about their experience with SME PAISA
-            </p>
+          <div className="text-center mb-4">
+            <h2 className="h4 fw-bold">What Our Clients Say</h2>
+            <p className="text-muted">Hear from our MSME partners</p>
           </div>
           <div className="row g-4">
-            {[
-              {
-                text: 'SME PAISA helped us get ₹25 lakhs working capital in just 48 hours. Their process is incredibly smooth and transparent.',
-                author: 'Rajesh Kumar',
-                company: 'Kumar Textiles, Mumbai',
-                initials: 'RK',
-              },
-              {
-                text: 'The CGTMSE loan process was seamless. Got ₹50 lakhs without any collateral. Highly recommend their services.',
-                author: 'Priya Sharma',
-                company: 'Sharma Electronics, Delhi',
-                initials: 'PS',
-              },
-              {
-                text: "As an associate, I've earned over ₹2 lakhs in commissions. The MLM structure is transparent and rewarding.",
-                author: 'Mohammad Ali',
-                company: 'Ali Trading Co., Bangalore',
-                initials: 'MA',
-              },
-            ].map((testimonial, index) => (
-              <div className="col-lg-4 col-md-6 animate-fade-in" key={index}>
-                <div className="card h-100 border-0 shadow-sm rounded-3 p-4 testimonial-card">
-                  <div className="d-flex gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="text-warning" fill="#fbbf24" />
-                    ))}
+            {['Rajesh', 'Priya', 'Ali'].map((name, idx) => (
+              <div className="col-md-4" key={idx}>
+                <div className="card p-4 h-100 border-0 rounded testimonial-box">
+                  <div className="d-flex gap-1 mb-2">
+                    {Array(5).fill(0).map((_, i) => <Star key={i} size={16} fill="#000" className="text-black" />)}
                   </div>
-                  <p className="text-muted mb-4 italic">"{testimonial.text}"</p>
-                  <div className="d-flex align-items-center gap-3">
-                    <div className="author-avatar bg-gradient-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold">
-                      {testimonial.initials}
-                    </div>
-                    <div>
-                      <h4 className="small fw-semibold text-dark mb-1">{testimonial.author}</h4>
-                      <p className="small text-muted">{testimonial.company}</p>
-                    </div>
+                  <p className="text-muted fst-italic mb-3">"{name}'s testimonial about SME PAISA."</p>
+                  <div>
+                    <h6 className="mb-0 text-black">{name}</h6>
+                    <p className="small text-muted">Client Company</p>
                   </div>
                 </div>
               </div>

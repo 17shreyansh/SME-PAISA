@@ -16,6 +16,7 @@ import TriggerEmailVerification from './pages/auth/TriggerEmailVerification.jsx'
 import Login from './pages/auth/Login.jsx';
 import ComingSoon from './pages/ComingSoon.jsx'; 
 import Cases from './pages/Cases.jsx';
+import AdminDashboard from './pages/homePages/AdminDashboard.jsx';
 
 const { Content } = Layout;
 
@@ -33,6 +34,7 @@ function App() {
       <Layout style={{ marginLeft: showSidebar ? sidebarWidth : 0, flex: 1, transition: 'margin-left 0.2s' }}>
         <Content style={{ margin: 0, padding: 0, background: '#fff', flex: 1 }}>
           <Routes>
+            <Route path="*" element={<ComingSoon />} /> {/* Catch-all unavelable route */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/kyc-upload" element={<KYCUpload />} />
@@ -44,7 +46,7 @@ function App() {
             <Route path="/knowledge" element={<KnowledgeHub />} />
             <Route path="/dashboard" element={<CoordinatorDashboard />} />
             <Route path="/cases" element={<Cases />} />
-            <Route path="*" element={<ComingSoon />} /> {/* Catch-all route */}
+            <Route path="/adminDashboard" element={<AdminDashboard />} />
           </Routes>
         </Content>
         {!hideHeaderFooter && <Footer />}

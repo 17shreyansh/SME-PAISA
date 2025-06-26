@@ -1,0 +1,36 @@
+/* Tab container */
+.cases-tabs .ant-tabs-nav {
+  margin-bottom: 16px;
+}
+
+/* All tab styles */
+.cases-tabs .ant-tabs-tab {
+  font-weight: 500;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.cases-tabs .ant-tabs-tab:hover {
+  background: #e0e0e0;
+  color: #000;
+}
+
+/* Active tab background and text */
+.cases-tabs .ant-tabs-tab-active {
+  background: #000;
+  border-radius: 4px;
+}
+
+/* Ensure active text is white */
+.cases-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff !important;
+}
+
+/* Remove AntD underline */
+.cases-tabs .ant-tabs-ink-bar {
+  background: transparent !important;
+}
