@@ -1,0 +1,24 @@
+[
+    {
+      "id": "user1",
+      "name": "John Doe",
+      "type": "Client",
+      "email": "john.doe@example.com",
+      "status": "Pending",
+      "documents": [
+        { "type": "PAN", "file": "pan.jpg", "size": 200, "status": "Pending", "url": "/docs/pan.jpg" },
+        { "type": "Aadhaar", "file": "aadhaar.pdf", "size": 300, "status": "Rejected", "reason": "Blurry image", "url": "/docs/aadhaar.pdf" }
+      ]
+    },
+    {
+      "id": "user2",
+      "name": "ABC Corp",
+      "type": "Associate",
+      "email": "abc.corp@example.com",
+      "status": "Approved",
+      "documents": [
+        { "type": "GST Certificate", "file": "gst.pdf", "size": 400, "status": "Approved", "url": "/docs/gst.pdf" },
+        { "type": "Business License", "file": "license.jpg", "size": 250, "status": "Pending", "url": "/docs/license.jpg" }
+      ]
+    }
+  ]

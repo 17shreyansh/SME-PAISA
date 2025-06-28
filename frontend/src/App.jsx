@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
+import { ToastContainer } from 'react-toastify';
 import Register from './pages/auth/Register.jsx';
 import Footer from './components/Footer.jsx';
 import Sidebar from './components/Sidebar.jsx';
@@ -17,6 +18,7 @@ import Login from './pages/auth/Login.jsx';
 import ComingSoon from './pages/ComingSoon.jsx'; 
 import Cases from './pages/Cases.jsx';
 import AdminDashboard from './pages/homePages/AdminDashboard.jsx';
+import KYCVerifyPortal from './pages/KYCVerifyPortal.jsx';
 
 const { Content } = Layout;
 
@@ -34,6 +36,7 @@ function App() {
       <Layout style={{ marginLeft: showSidebar ? sidebarWidth : 0, flex: 1, transition: 'margin-left 0.2s' }}>
         <Content style={{ margin: 0, padding: 0, background: '#fff', flex: 1 }}>
           <Routes>
+            
             <Route path="*" element={<ComingSoon />} /> {/* Catch-all unavelable route */}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -47,6 +50,7 @@ function App() {
             <Route path="/dashboard" element={<CoordinatorDashboard />} />
             <Route path="/cases" element={<Cases />} />
             <Route path="/adminDashboard" element={<AdminDashboard />} />
+            <Route path="/kyc" element={<KYCVerifyPortal />} />
           </Routes>
         </Content>
         {!hideHeaderFooter && <Footer />}

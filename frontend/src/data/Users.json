@@ -1,0 +1,66 @@
+[
+  {
+    "id": "user1",
+    "name": "John Doe",
+    "type": "Client",
+    "email": "john.doe@example.com",
+    "status": "Pending",
+    "documents": [
+      { "type": "PAN", "file": "pan.jpg", "size": 200, "status": "Pending", "url": "/docs/pan.jpg" },
+      { "type": "Aadhaar", "file": "aadhaar.pdf", "size": 300, "status": "Rejected", "reason": "Blurry image", "url": "/docs/aadhaar.pdf" }
+    ]
+  },
+  {
+    "id": "user2",
+    "name": "ABC Corp",
+    "type": "Associate",
+    "email": "abc.corp@example.com",
+    "status": "Approved",
+    "documents": [
+      { "type": "GST Certificate", "file": "gst.pdf", "size": 400, "status": "Approved", "url": "/docs/gst.pdf" }
+    ]
+  },
+  {
+    "id": "user3",
+    "name": "Priya Mehta",
+    "type": "Client",
+    "email": "priya.mehta@example.com",
+    "status": "Approved",
+    "documents": [
+      { "type": "PAN", "file": "pan_priya.jpg", "size": 180, "status": "Approved", "url": "/docs/pan_priya.jpg" },
+      { "type": "Aadhaar", "file": "aadhaar_priya.pdf", "size": 290, "status": "Approved", "url": "/docs/aadhaar_priya.pdf" },
+      { "type": "Bank Statement", "file": "bank_priya.pdf", "size": 420, "status": "Approved", "url": "/docs/bank_priya.pdf" },
+      { "type": "Address Proof", "file": "address_priya.pdf", "size": 320, "status": "Approved", "url": "/docs/address_priya.pdf" }
+    ]
+  },
+  {
+    "id": "user4",
+    "name": "Global Solutions Ltd.",
+    "type": "Associate",
+    "email": "contact@globalsolutions.com",
+    "status": "Pending",
+    "documents": [
+      { "type": "PAN", "file": "pan_global.jpg", "size": 250, "status": "Pending", "url": "/docs/pan_global.jpg" },
+      { "type": "Business License", "file": "license_global.pdf", "size": 500, "status": "Pending", "url": "/docs/license_global.pdf" }
+    ]
+  },
+  {
+    "id": "user5",
+    "name": "Ravi Sharma",
+    "type": "Client",
+    "email": "ravi.sharma@example.com",
+    "status": "Rejected",
+    "documents": [
+      { "type": "PAN", "file": "pan_ravi.jpg", "size": 210, "status": "Rejected", "reason": "Fake document", "url": "/docs/pan_ravi.jpg" },
+      { "type": "Bank Statement", "file": "bank_ravi.pdf", "size": 390, "status": "Approved", "url": "/docs/bank_ravi.pdf" }
+    ]
+  },
+  {
+    "id": "user6",
+    "name": "Future Tech Pvt Ltd",
+    "type": "Associate",
+    "email": "info@futuretech.in",
+    "status": "Missing",
+    "documents": []
+  }
+]
